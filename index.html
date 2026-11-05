@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GraceBridge – Online doctor consultations and medication delivery</title>
+<meta name="description" content="See a doctor online for R500, upload a prescription or order over-the-counter medication, delivered to your door in Johannesburg and Pretoria.">
+<meta property="og:title" content="GraceBridge – Online doctor consultations and medication delivery">
+<meta property="og:description" content="See a doctor online for R500 and get your medication delivered in Johannesburg and Pretoria.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d2145">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d8232b'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='%23fff' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2145;--navy2:#17356b;--red:#d8232b;--red-d:#b81b22;--tint:#eef2fa;--bg:#fff;--ink:#0d2145;--muted:#566282;--card:#fff;--line:#dfe5f1;--hdr:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1429;--ink:#eef2fb;--muted:#9eaacb;--card:#111f40;--line:#243764;--tint:#13244b;--hdr:#0a1429}}
+:root[data-theme="dark"]{--bg:#0a1429;--ink:#eef2fb;--muted:#9eaacb;--card:#111f40;--line:#243764;--tint:#13244b;--hdr:#0a1429}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.top{background:var(--navy);color:#dbe4f7;font-size:13.5px;text-align:center;padding:9px 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--hdr);border-bottom:1px solid var(--line)}
+header .w{display:flex;align-items:center;gap:20px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.4px;margin-right:auto;color:var(--ink);text-decoration:none}
+.mk{width:34px;height:34px;border-radius:9px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:800;font-size:19px}
+nav{display:none;gap:26px}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px}
+nav a:hover{color:var(--ink)}
+@media(min-width:820px){nav{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;border:0;border-radius:10px;padding:12px 22px;font:700 15px 'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--red-d)}
+.btn.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn.o:hover{background:rgba(255,255,255,.1)}
+.cart{position:relative;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+.cart b{position:absolute;top:-7px;right:-7px;background:var(--red);color:#fff;font-size:11px;border-radius:99px;min-width:19px;height:19px;display:grid;place-items:center}
+.hero{background:linear-gradient(150deg,var(--navy) 30%,var(--navy2));color:#fff;padding:64px 0 72px}
+.hero .w{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.hero .w{grid-template-columns:1.2fr 1fr}}
+h1{font-size:clamp(34px,6vw,56px);line-height:1.08;font-weight:800;letter-spacing:-1.6px;margin:0 0 18px}
+.hero p.l{font-size:18px;color:#c9d5ee;max-width:520px;margin:0 0 28px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.sb{display:flex;background:#fff;border-radius:12px;padding:5px 5px 5px 18px;align-items:center;margin-top:30px;max-width:520px;color:#566282}
+.sb input{flex:1;min-width:0;border:0;outline:0;background:none;font:500 16px 'DM Sans',sans-serif;color:#0d2145;padding:10px 8px}
+.sb button{border:0;background:var(--navy);color:#fff;border-radius:9px;padding:11px 18px;font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.cc{background:#fff;color:#0d2145;border-radius:20px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.cc .t{font-weight:700;font-size:15px;color:#566282}
+.cc .pr{font-size:54px;font-weight:800;letter-spacing:-2px;line-height:1.1;margin:4px 0 4px}
+.cc .pr small{font-size:15px;font-weight:600;color:#566282;letter-spacing:0;margin-left:6px}
+.cc ul{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:10px;font-size:15px;font-weight:500}
+.cc li{display:flex;gap:10px;align-items:center}
+.cc li svg{color:var(--red)}
+.cc .btn{width:100%}
+.vis{position:relative;padding-bottom:0}
+.vis img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:24px}
+.vis .cc{margin:-70px 14px 0;position:relative;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.vis .cc .pr{font-size:40px}
+@media(min-width:900px){.vis{padding-bottom:30px}.vis .cc{position:absolute;left:-36px;bottom:0;margin:0;width:300px}}
+.ov{position:fixed;inset:0;background:rgba(5,12,30,.55);z-index:20;opacity:0;pointer-events:none;transition:opacity .2s}
+.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--bg);color:var(--ink);z-index:30;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:-10px 0 40px rgba(0,0,0,.25)}
+.dr.on{transform:none}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dh h3{margin:0;font-size:19px}
+.x{background:none;border:0;color:var(--ink);font-size:26px;cursor:pointer;line-height:1;padding:4px 8px}
+.db{flex:1;overflow:auto;padding:18px 20px}
+.df{padding:16px 20px;border-top:1px solid var(--line)}
+.li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.li .ph{height:52px;width:52px;margin:0;flex:none}
+.li .ph svg{width:26px;height:26px}
+.li div.m{flex:1;font-size:14.5px;font-weight:600;line-height:1.3}
+.li small{display:block;color:var(--muted);font-weight:500}
+.q{display:flex;align-items:center;gap:8px}
+.q button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:17px;cursor:pointer}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:17px;margin-bottom:6px}
+.fn{font-size:13px;color:var(--muted);margin:0 0 12px}
+.f{display:grid;gap:12px}
+.f label{display:grid;gap:5px;font-weight:600;font-size:14px}
+.f input,.f textarea,.f select{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:12px;font:500 15px 'DM Sans',sans-serif;width:100%}
+.f textarea{min-height:80px;resize:vertical}
+.ok{background:var(--tint);border-radius:14px;padding:22px;font-weight:600}
+.ok p{font-weight:500;color:var(--muted);margin:8px 0 0}
+dialog{border:0;border-radius:20px;padding:0;width:min(480px,calc(100% - 32px));background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(5,12,30,.6)}
+dialog .dh{border:0;padding-bottom:0}
+dialog .db{padding:12px 20px 22px}
+.p .pr2{font-weight:800;font-size:17px;margin-top:4px}
+.btn.full{width:100%}
+.strip{border-bottom:1px solid var(--line)}
+.strip .w{display:grid;gap:18px;padding-top:26px;padding-bottom:26px}
+@media(min-width:760px){.strip .w{grid-template-columns:repeat(3,1fr)}}
+.tr{display:flex;gap:14px;align-items:center;font-weight:600;font-size:15px}
+.tr span{display:block;font-weight:500;color:var(--muted);font-size:14px}
+.tr .ic{width:44px;height:44px;border-radius:12px;background:var(--tint);display:grid;place-items:center;flex:none;color:var(--navy2)}
+:root[data-theme="dark"] .tr .ic{color:#9fb8f0}
+section{padding:72px 0 0}
+h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.9px;line-height:1.15;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:560px}
+.steps{display:grid;gap:16px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.st{background:var(--tint);border-radius:16px;padding:26px}
+.st b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-size:15px;margin-bottom:14px}
+.st h3{margin:0 0 6px;font-size:18px}
+.st p{margin:0;color:var(--muted);font-size:15px}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.cat{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 18px;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+.cat[aria-pressed="true"]{background:var(--navy2);border-color:var(--navy2);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr)}}
+.p{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.ph{height:96px;border-radius:12px;background:var(--tint);display:grid;place-items:center;color:var(--navy2);margin-bottom:8px}
+.ph svg{width:40px;height:40px;stroke-width:1.4}
+.p h3{margin:0;font-size:15.5px;font-weight:700;line-height:1.3}
+.p small{color:var(--muted);font-size:13.5px}
+.p button{margin-top:10px;border:1.5px solid var(--line);color:var(--ink);background:none;border-radius:9px;padding:9px;font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.p button:hover{border-color:var(--red);color:var(--red)}
+.empty{grid-column:1/-1;color:var(--muted);padding:20px 0}
+.note{font-size:13.5px;color:var(--muted);margin-top:18px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{font-weight:700;cursor:pointer;font-size:17px}
+details p{color:var(--muted);margin:10px 0 0;max-width:680px}
+.wait{background:var(--navy);color:#fff;border-radius:24px;padding:48px 28px;text-align:center;margin-top:72px}
+.wait h2{margin-bottom:8px}
+.wait p{color:#c9d5ee;margin:0 0 24px}
+.wait form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.wait input{flex:1 1 220px;border:0;border-radius:10px;padding:14px 16px;font:500 15px 'DM Sans',sans-serif}
+#ok{margin:16px 0 0;min-height:1.5em;color:#fff}
+footer{margin-top:72px;border-top:1px solid var(--line);padding:32px 0 calc(40px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:13.5px}
+footer .w{display:grid;gap:10px}
+:focus-visible{outline:3px solid #6f9bff;outline-offset:2px}
+
+html{background:#0d2145}
+header{position:fixed;left:0;right:0;margin:0 auto;top:calc(12px + env(safe-area-inset-top,0px));width:calc(100% - 24px);max-width:1120px;border:0;border-radius:99px;background:rgba(13,33,69,.55);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+header .w{max-width:none;height:60px;padding:0 10px 0 22px}
+.logo{color:#fff;font-weight:600}
+nav a{color:#e3eaf7}nav a:hover{color:#fff}
+.cart{color:#fff;border-color:rgba(255,255,255,.4)}
+header .btn{background:#fff;color:#0d2145;padding:10px 18px;white-space:nowrap;max-width:42vw;overflow:hidden;text-overflow:ellipsis;display:inline-block}
+.btn.sm,.cart{white-space:nowrap}
+@media(max-width:440px){header .w{gap:8px;padding:0 8px 0 14px}header .logo{font-size:18px;gap:8px}header .mk{width:30px;height:30px;font-size:17px}header .cart{width:40px;height:40px}header .btn{padding:9px 14px}}
+.lnk{background:none;border:0;padding:0;font:600 14px 'DM Sans',sans-serif;color:var(--ink);text-decoration:underline;cursor:pointer;justify-self:start}
+.btn{border-radius:99px;font-weight:600}
+.btn.dk{background:#0d2145;color:#fff;padding:16px 30px;font-size:16px}
+.btn.dk:hover{background:#17356b}
+.btn.lt{background:#eaf1f8;color:#0d2145;padding:16px 30px;font-size:16px}
+.btn.lt:hover{background:#fff}
+.hero2{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#fff;background:#0d2145;overflow:hidden;padding:120px 0 56px}
+.hero2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.hero2::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,26,58,.94) 0%,rgba(10,26,58,.7) 34%,rgba(10,26,58,.08) 68%,rgba(10,26,58,.25) 100%)}
+.hero2 .w{position:relative;z-index:2;width:100%}
+.hero2 h1{font-weight:300;font-size:clamp(38px,6.4vw,68px);line-height:1.06;letter-spacing:-1.5px;max-width:760px;margin:0 0 20px}
+.hero2 p.l{font-size:clamp(17px,2vw,20px);font-weight:400;color:#e3eaf7;max-width:560px;margin:0 0 30px}
+.two{display:grid;gap:28px;align-items:center}
+@media(min-width:860px){.two{grid-template-columns:1fr 1fr;gap:64px}}
+.cc{box-shadow:none;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.cc .t,.cc .pr small{color:var(--muted)}
+.cc .pr{font-weight:500}
+.cc li svg{color:var(--navy2)}
+h2{font-weight:500;letter-spacing:-.6px}
+.st,.p,.wait{border-radius:24px}
+.st b{font-weight:600}
+#shop .sb{background:var(--card);border:1px solid var(--line);margin:0 0 20px;color:var(--muted);border-radius:99px;padding-left:20px}
+#shop .sb input{color:var(--ink)}
+#shop .sb button{border-radius:99px;padding:11px 22px}
+.strip{padding-top:0}
+.ways{display:grid;gap:16px}
+@media(min-width:860px){.ways{grid-template-columns:repeat(3,1fr)}}
+.way{background:var(--tint);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.way .ic{width:48px;height:48px;border-radius:14px;background:var(--card);display:grid;place-items:center;color:var(--navy2);margin-bottom:6px}
+.way h3{margin:0;font-size:19px;font-weight:600}
+.way p{margin:0 0 12px;color:var(--muted);font-size:15px;flex:1}
+#consult{padding-top:72px!important}
+.ph.pic{background:#fff;border:1px solid var(--line);height:150px;padding:8px}
+.ph.pic img{max-width:100%;max-height:100%;object-fit:contain}
+.li .ph.pic{height:56px;width:56px;padding:3px}
+.p h3{word-break:break-word}
+.more{grid-column:1/-1;text-align:center;padding:10px 0}
+.cats{flex-wrap:wrap}
+.err{color:#c11c24;font-size:14px;min-height:1.2em;margin:0}
+.rxi{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:14.5px;word-break:break-word}
+#app{position:fixed;inset:0;z-index:15;background:var(--bg);color:var(--ink);overflow:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+#app[hidden]{display:none}
+#app .logo{color:var(--ink);font-weight:700}
+.ab{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);padding-top:10px}
+.abi{display:flex;align-items:center;gap:12px;height:48px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-top:8px;padding-bottom:12px}
+.tabs .cat{flex:none}
+.apc{padding-top:30px;padding-bottom:60px}
+.btn.sm{padding:9px 18px;font-size:14px}
+.demo{border:1px dashed var(--muted);background:none;color:var(--muted);border-radius:99px;padding:8px 14px;font:600 13px 'DM Sans',sans-serif;cursor:pointer}
+.stp{display:flex;flex-wrap:wrap;gap:6px}
+.stp span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:99px;background:var(--tint);color:var(--muted)}
+.stp span.on{background:var(--navy2);color:#fff}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:#0d2145;color:#fff;border-radius:99px;padding:12px 22px;font-weight:600;font-size:14.5px;z-index:60;max-width:calc(100% - 32px);text-align:center}
+.toast[hidden]{display:none}
+#app .sb{display:flex;align-items:center;background:var(--card);border:1px solid var(--line);margin:0 0 20px;color:var(--muted);border-radius:99px;padding:5px 5px 5px 20px;max-width:520px}
+#app .sb input{flex:1;min-width:0;border:0;outline:0;background:none;color:var(--ink);font:500 16px 'DM Sans',sans-serif;padding:10px 8px}
+#app .sb button{border:0;background:var(--navy);color:#fff;border-radius:99px;padding:11px 22px;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+#app .f textarea,#app .f input{max-width:100%}
+#app .cart{color:var(--ink);border-color:var(--line)}
+.docs{margin-top:34px;display:inline-block}
+.dl{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#e3eaf7;margin-bottom:10px}
+.dl i{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.25)}
+.dp{display:inline-flex;align-items:center;padding:7px 9px 7px 12px;border-radius:99px;background:rgba(255,255,255,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.dp span{width:52px;height:52px;border-radius:50%;border:3px solid #fff;margin-left:-14px;display:grid;place-items:end center;overflow:hidden;flex:none}
+.dp span:first-child{margin-left:0}
+.dp svg{width:100%;height:100%;fill:#0d2145;opacity:.55}
+.dp .more2{background:#e8a48c;color:#fff;font-weight:600;font-size:18px;place-items:center}
+.pr2 s{font-weight:500;font-size:13px;color:var(--muted);margin-left:6px}
+.cdw{margin:8px 0 12px;font-size:15px;color:var(--muted)}
+.cd{font-variant-numeric:tabular-nums;font-size:20px;color:var(--red);margin-left:6px}
+
+/* delivery, address, privacy */
+.ph.pic{position:relative;overflow:hidden;flex:none}
+.ph.pic img{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);max-width:none;max-height:none;object-fit:contain}
+@media(min-width:760px){.ph.pic{height:180px}}
+.li .ph.pic img{inset:3px;width:calc(100% - 6px);height:calc(100% - 6px)}
+.p h3{min-height:2.6em}
+.tot.sm{font-weight:500;font-size:15px;color:var(--muted)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.f .sf{position:relative;display:block}
+.f .sf input,.f .sf select{height:56px;padding:23px 13px 7px;border-radius:8px;font-weight:500;font-size:15px;appearance:none;-webkit-appearance:none}
+.f .sf select{padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23566282' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.f .sf label{position:absolute;left:13px;top:9px;display:block;font-size:12px;font-weight:500;color:var(--muted);pointer-events:none;transition:all .12s}
+.f .sf input::placeholder{color:transparent}
+.f .sf input:placeholder-shown:not(:focus)+label{top:18px;font-size:15px}
+.f .sf input[readonly]{opacity:.8}
+.f .sf select:disabled{opacity:.8}
+.f .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f label.ck{display:flex;gap:10px;align-items:flex-start;font-weight:500;font-size:13.5px;color:var(--muted);line-height:1.45}
+.f label.ck input{width:18px;height:18px;padding:0;margin-top:2px;flex:none}
+.f label.ck a,.fl a,.pvl a{color:var(--ink)}
+.sum{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;font-size:14.5px}
+.sum div{display:flex;justify-content:space-between}
+.sum .tt{font-weight:700;font-size:16px;border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
+.f h4,.shd{margin:6px 0 -2px;font-size:15px}
+.fl{display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:600}
+#pv{width:min(720px,calc(100% - 32px))}
+#pv[open]{display:flex;flex-direction:column;max-height:88vh}
+#pv .db{overflow:auto;font-size:14.5px}
+#pv h4{margin:22px 0 6px;font-size:16px}
+#pv h4:first-child{margin-top:4px}
+#pv p,#pv li{color:var(--muted);margin:0 0 8px}
+#pv ul{padding-left:20px;margin:0 0 8px}
+#pv b{color:var(--ink)}
+#pv table{width:100%;border-collapse:collapse;font-size:14px}
+#pv td{border-top:1px solid var(--line);padding:8px 6px;vertical-align:top;color:var(--muted)}
+#pv td:first-child{color:var(--ink);font-weight:600;white-space:nowrap;padding-right:14px}
+
+/* ───────────── 2026-11 quality pass (the hero styles above are untouched) ───────────── */
+
+/* Opening animation: the mark settles, a bridge draws between two points (you and your
+   care), the name arrives, then the curtain lifts. Pure CSS, so it always ends on its own
+   even if a script fails; shown once per visit; skipped with reduced motion. */
+#ld{position:fixed;inset:0;z-index:100;background:#0d2145;display:grid;place-items:center;color:#fff;pointer-events:none;animation:ld-out .55s cubic-bezier(.7,0,.2,1) 1.25s forwards}
+.ld-seen #ld{display:none}
+@media(prefers-reduced-motion:reduce){#ld{display:none}}
+#ld .ldc{display:grid;justify-items:center;gap:18px}
+#ld .ldm{width:64px;height:64px;border-radius:18px;background:var(--red);display:grid;place-items:center;font-weight:800;font-size:36px;box-shadow:0 18px 40px -12px rgba(216,35,43,.7),inset 0 1px 0 rgba(255,255,255,.25);animation:ld-mark .7s cubic-bezier(.2,.9,.25,1.15) both}
+#ld svg{width:180px;height:34px;overflow:visible}
+#ld .br{fill:none;stroke:rgba(255,255,255,.9);stroke-width:2;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:ld-draw .7s cubic-bezier(.6,0,.2,1) .25s forwards}
+#ld .pt{fill:#fff;transform-box:fill-box;transform-origin:center;transform:scale(0);animation:ld-pt .3s ease-out forwards}
+#ld .pt.b{fill:var(--red);animation-delay:.85s}
+#ld .pt.a{animation-delay:.2s}
+#ld .ldw{font-weight:600;font-size:22px;letter-spacing:.02em;opacity:0;animation:ld-word .6s ease-out .55s forwards}
+#ld .ldw span{color:#9fb3da;font-weight:400}
+@keyframes ld-mark{from{opacity:0;transform:translateY(10px) scale(.7)}}
+@keyframes ld-draw{to{stroke-dashoffset:0}}
+@keyframes ld-pt{to{transform:scale(1)}}
+@keyframes ld-word{from{opacity:0;transform:translateY(6px);letter-spacing:.12em}to{opacity:1;transform:none;letter-spacing:.02em}}
+@keyframes ld-out{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
+
+/* Cart badge: hidden when empty, a small bump when something is added. */
+.cart b[hidden]{display:none}
+.cart.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{40%{transform:scale(1.18)}}
+
+/* Shop toolbar: live search with clear, result count and sort. */
+#shop .sb,#app .sb{max-width:none}
+.sb .clr{border:0;background:var(--tint);color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1;display:grid;place-items:center;margin-right:6px}
+.sb .clr[hidden]{display:none}
+#shop .sb .clr,#app .sb .clr{padding:0;border-radius:50%;background:var(--tint);color:var(--muted);width:30px;height:30px;font:400 18px/1 'DM Sans',sans-serif}
+.sb input[type=search]::-webkit-search-cancel-button{display:none}
+.tb{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-4px 0 16px;font-size:14px;color:var(--muted)}
+.tb select{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 32px 8px 14px;font:600 13.5px 'DM Sans',sans-serif;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23566282' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+/* Categories: one swipeable row on phones instead of six wrapped rows. */
+.cats{gap:8px}
+.cat .ct{font-weight:500;opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
+@media(max-width:759px){
+  #cats,#ac{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-20px;margin-right:-20px;padding:2px 20px 4px;scroll-padding-inline:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent)}
+  #cats::-webkit-scrollbar,#ac::-webkit-scrollbar{display:none}
+  #cats .cat,#ac .cat{flex:none}
+}
+
+/* Product cards: equal heights, the whole card opens the product, quick add bottom right. */
+/* minmax(0,1fr): a column may never grow to fit a card's one-line text (that widened the
+   whole page to 492 px on a 390 px phone). */
+.grid{gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:760px){.grid{gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}}
+.p,.pa,.pf{min-width:0}
+.p{position:relative;padding:10px 10px 12px;gap:0;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s;animation:card-in .45s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 35ms)}
+@keyframes card-in{from{opacity:0;transform:translateY(10px)}}
+@media(hover:hover){.p:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(13,33,69,.45);border-color:#cdd6e8}}
+/* .p .pa (not .pa): the original ".p button" rule (border, padding, margin) out-ranked a
+   bare .pa and drew a box inside every card. */
+.p .pa{all:unset;cursor:pointer;display:flex;flex-direction:column;border-radius:16px;min-width:0}
+.p .pa:hover{color:inherit}
+.p .pa:focus-visible{outline:3px solid #6f9bff;outline-offset:3px}
+.p .ph{margin:0 0 10px;height:auto;aspect-ratio:1;border-radius:14px}
+.p .ph.pic{height:auto;background:#fff;border:0}
+.p .ph.pic img{inset:10%;width:80%;height:80%;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+@media(hover:hover){.p:hover .ph.pic img{transform:scale(1.05)}}
+.p h3{font-size:14.5px;font-weight:600;line-height:1.3;min-height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0 4px}
+.p .mt{font-size:12.5px;color:var(--muted);margin:4px 4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:1.4em}
+.p .pf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:10px 4px 0}
+.p .pr2{margin:0;font-size:16px;line-height:1.15;display:flex;flex-direction:column;white-space:nowrap}
+/* In the cart: the quantity control takes its own full-width row, so the price never breaks. */
+.p .ad:has(.st2){flex-basis:100%}
+.p .ad .st2{justify-content:space-between}
+.p .pr2 s{margin:0;font-size:12px}
+.sv{position:absolute;top:18px;left:18px;z-index:1;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;border-radius:99px;padding:3px 9px;letter-spacing:.01em}
+.qa{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--navy);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:22px;line-height:1;transition:transform .15s,background .2s}
+.qa:hover{background:var(--navy2)}
+.qa:active{transform:scale(.9)}
+.p button.qa{margin:0;padding:0;border:0;background:var(--navy);color:#fff;border-radius:50%;font:400 22px/1 'DM Sans',sans-serif}
+.p button.qa:hover{background:var(--navy2);color:#fff}
+:root[data-theme="dark"] .p button.qa{background:#2c4f93}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p button.qa{background:#2c4f93}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.li .ph.nf span{display:none}
+.li .ph.nf svg{width:24px;height:24px}
+.st2{display:flex;align-items:center;gap:2px;background:var(--tint);border-radius:99px;padding:3px}
+.st2 button{width:32px;height:32px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:17px;cursor:pointer;display:grid;place-items:center;padding:0;margin:0;box-shadow:0 1px 2px rgba(13,33,69,.12)}
+.st2 span{min-width:22px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;font-size:14.5px}
+.p .st2 button{margin:0;border:0;padding:0;background:var(--card);color:var(--ink);border-radius:50%;font:500 17px/1 'DM Sans',sans-serif}
+.p .st2 button:hover{color:var(--red)}
+/* Products without a photo: a clean branded tile with the dosage form, not an empty grey box. */
+.ph.nf{background:linear-gradient(150deg,var(--tint),var(--card));display:grid;place-items:center;align-content:center;gap:6px;color:var(--navy2);text-align:center}
+.ph.nf svg{width:34px;height:34px}
+.ph.nf span{font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.more .cat{padding:11px 22px}
+
+/* Product page: a sheet from the bottom on phones, a two-column panel on larger screens. */
+#pd{width:min(880px,calc(100% - 32px));max-height:min(92vh,900px);padding:0;overflow:hidden}
+#pd[open]{display:flex;flex-direction:column;animation:pd-in .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pd-in{from{opacity:0;transform:translateY(24px) scale(.98)}}
+#pd .pdx{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 2px 10px rgba(13,33,69,.18)}
+/* The body is the only scroller and takes the space left above the bottom bar, so content
+   can never slide under the bar (it did: the related cards blocked its buttons). */
+#pd .pdb{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+#pd .pdbar{flex:none}
+.pdg{display:grid;gap:0}
+/* Two equal columns that cannot grow; the square image sits at the top of its column
+   (stretching it to the text's height made it wider, which made the text taller…). */
+@media(min-width:760px){.pdg{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}.pdg>.pdi{position:sticky;top:0;align-self:start}}
+.pdi{position:relative;background:#fff;display:grid;place-items:center;aspect-ratio:1;max-height:46vh;width:100%;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.pdi{max-height:none;border-bottom:0;border-right:1px solid var(--line)}}
+.pdi img{width:min(72%,240px);height:auto;object-fit:contain}
+.pdi.nf{background:linear-gradient(150deg,var(--tint),var(--card))}
+.pdi.nf svg{width:64px;height:64px;color:var(--navy2)}
+.pdc{padding:22px 22px 18px;display:flex;flex-direction:column;gap:14px}
+.pdk{display:inline-flex;align-self:flex-start;border:1px solid var(--line);background:none;color:var(--muted);border-radius:99px;padding:5px 12px;font:600 12.5px 'DM Sans',sans-serif;cursor:pointer}
+.pdk:hover{color:var(--ink);border-color:var(--muted)}
+#pdh:focus{outline:none}
+/* Dark mode: navy icons on the dark tint were invisible. */
+:root[data-theme="dark"] .pdas .ic,:root[data-theme="dark"] .ph.nf,:root[data-theme="dark"] .pdi.nf svg{color:#9fb8f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pdas .ic,:root:not([data-theme="light"]) .ph.nf,:root:not([data-theme="light"]) .pdi.nf svg{color:#9fb8f0}}
+.pdc h2{font-size:clamp(24px,4vw,30px);font-weight:600;letter-spacing:-.5px;margin:0;line-height:1.15}
+.pdm{display:flex;flex-wrap:wrap;gap:6px;margin-top:-4px}
+.pdm span{background:var(--tint);color:var(--ink);border-radius:8px;padding:5px 10px;font-size:13px;font-weight:600}
+.pdp{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pdp b{font-size:30px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.pdp s{color:var(--muted);font-size:15px}
+.pdp .sv{position:static;font-size:12.5px}
+.pda{display:flex;gap:10px;align-items:stretch}
+.pda .st2{padding:4px}
+.pda .st2 button{width:38px;height:38px}
+.pda .btn{flex:1;padding:14px 18px;font-size:15.5px}
+.pdin{font-size:14px;color:var(--muted);margin:-4px 0 0}
+.pdas{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:10px;font-size:14.5px}
+.pdas li{display:flex;gap:12px;align-items:flex-start}
+.pdas .ic{width:36px;height:36px;border-radius:10px;background:var(--tint);display:grid;place-items:center;flex:none;color:var(--navy2)}
+.pdas .ic svg{width:19px;height:19px}
+.pdas b{display:block;font-weight:600;color:var(--ink)}
+.pdas span{color:var(--muted);font-size:13.5px}
+.pdn{border-left:3px solid var(--red);background:var(--tint);border-radius:0 12px 12px 0;padding:12px 14px;font-size:13.5px;color:var(--muted)}
+.pdn b{color:var(--ink)}
+.pdl{font-size:12px;color:var(--muted);word-break:break-word}
+.pdl code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--tint);padding:2px 6px;border-radius:6px;color:var(--ink)}
+.pdr{padding:6px 22px 24px;border-top:1px solid var(--line)}
+.pdr h3{font-size:16px;margin:16px 0 12px;font-weight:600}
+.pdr .rl{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,44%);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+@media(min-width:760px){.pdr .rl{grid-auto-columns:minmax(150px,1fr)}}
+.pdr .rl::-webkit-scrollbar{display:none}
+.pdr .p{scroll-snap-align:start;animation:none}
+@media(max-width:759px){
+  #pd{width:100%;max-width:100%;max-height:94vh;margin:auto 0 0;border-radius:24px 24px 0 0}
+  #pd[open]{animation:pd-up .38s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pd-up{from{transform:translateY(100%)}}
+  #pd::before{content:"";position:absolute;top:8px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:var(--line);z-index:3}
+  /* Price and add-to-cart stay in thumb reach while you read. */
+  .pdbar{position:relative;z-index:2;background:var(--bg);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px}
+  .pdbar .btn{flex:1;padding:14px 16px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .pdc .pda{display:none}
+}
+@media(min-width:760px){.pdbar{display:none}}
+
+/* Toast with an action. */
+.toast{display:flex;align-items:center;gap:14px;justify-content:center;width:max-content;max-width:calc(100% - 32px);padding:8px 8px 8px 20px}
+.toast span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;font-weight:500}
+.toast span b{font-weight:700}
+.toast:not(:has(button)){padding:12px 22px}
+.toast button{flex:none;border:0;background:#fff;color:#0d2145;border-radius:99px;padding:6px 14px;font:700 13px 'DM Sans',sans-serif;cursor:pointer}
+
+/* FAQ: a proper plus/minus instead of the browser triangle. */
+summary{list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 1v10M1 6h10' stroke='%230d2145' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+
+/* ───── The three sections before the shop: ways, consultation, how it works ───── */
+.s3 .sh{max-width:640px;margin-bottom:34px}
+.ey{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 14px}
+.ey::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.s3 h2{font-size:clamp(30px,4.6vw,46px);letter-spacing:-1px;line-height:1.08;margin:0 0 14px}
+.s3 .sub{font-size:17px;margin:0;max-width:540px}
+#ways{padding-top:88px}
+
+/* 1 · Three ways: each card shows what that way actually looks like. */
+.wy{display:grid;gap:16px}
+@media(min-width:900px){.wy{grid-template-columns:1.15fr 1fr 1fr;gap:20px}}
+.wc{position:relative;display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:var(--tint);border:1px solid var(--line)}
+@media(hover:hover){.wc{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}.wc:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(13,33,69,.45)}}
+.wv{position:relative;height:196px;display:grid;place-items:center;overflow:hidden}
+.wb{padding:4px 26px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.wn{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.wc h3{margin:0;font-size:22px;font-weight:600;letter-spacing:-.3px;line-height:1.2}
+.wc p{margin:0;color:var(--muted);font-size:15.5px;flex:1}
+.wc .btn{align-self:flex-start;margin-top:8px}
+.wc-2 .btn,.wc-3 .btn{background:var(--ink);color:var(--bg)}
+.wc-2 .btn:hover,.wc-3 .btn:hover{background:var(--navy2);color:#fff}
+.wc-1{background:radial-gradient(120% 80% at 100% 0%,rgba(75,124,201,.55) 0%,transparent 55%),linear-gradient(160deg,#17356b,#0d2145);border-color:transparent;color:#fff}
+.wc-1 p{color:#c9d5ee}
+.wc-1 .wn{color:#ffb0b4}
+/* video call */
+.vcall{width:min(270px,80%);border-radius:18px;background:#0a1a38;box-shadow:0 24px 44px -20px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.08);padding:10px;transform:rotate(-2deg)}
+.vtop{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:#dbe4f7;padding:2px 4px 8px}
+.vdot{width:7px;height:7px;border-radius:50%;background:#3ddc84;animation:vd 2s ease-in-out infinite}
+@keyframes vd{50%{box-shadow:0 0 0 5px rgba(61,220,132,0)}0%,100%{box-shadow:0 0 0 0 rgba(61,220,132,.5)}}
+.vtag{margin-left:auto;font-size:10.5px;color:#3ddc84;background:rgba(61,220,132,.12);padding:2px 8px;border-radius:99px}
+.vtile{position:relative;height:104px;border-radius:12px;background:linear-gradient(160deg,#9db7e8,#5f7fbf);overflow:hidden;display:grid;place-items:end center}
+.vav{width:86px;height:86px;fill:#0d2145;opacity:.5}
+.vlab{position:absolute;left:8px;bottom:7px;font-size:10.5px;font-weight:600;color:#fff;background:rgba(13,33,69,.55);padding:2px 7px;border-radius:6px}
+.vme{position:absolute;right:8px;top:8px;width:36px;height:46px;border-radius:8px;background:linear-gradient(160deg,#f0c9b8,#d9a48e);border:2px solid #0a1a38;display:grid;place-items:end center;overflow:hidden}
+.vme svg{width:32px;height:32px;fill:#0d2145;opacity:.45}
+.vbar{display:flex;justify-content:center;gap:10px;padding-top:9px}
+.vbar i{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;color:#fff}
+.vbar i svg{width:15px;height:15px}
+.vbar i.end{background:var(--red)}
+/* prescription */
+.vrx{position:relative;width:min(220px,68%)}
+.doc{background:#fff;border-radius:14px;padding:16px 16px 14px;box-shadow:0 18px 36px -18px rgba(13,33,69,.45);transform:rotate(2deg);display:grid;gap:7px}
+.dh2{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.dh2 b{font:700 18px 'DM Sans',sans-serif;color:var(--red)}
+.dh2 span{height:6px;flex:1;border-radius:3px;background:#dfe5f1}
+.ln{height:6px;border-radius:3px;background:#e9edf5;display:block}
+.sig svg{width:70px;height:18px;fill:none;stroke:#17356b;stroke-width:1.6;stroke-linecap:round}
+.stamp{position:absolute;right:-16px;bottom:-14px;display:flex;align-items:center;gap:6px;background:#0d2145;color:#fff;font-size:11.5px;font-weight:600;padding:8px 13px;border-radius:99px;box-shadow:0 12px 24px -10px rgba(13,33,69,.6);transition:transform .5s cubic-bezier(.3,1.5,.5,1) .55s,opacity .3s .55s;white-space:nowrap}
+.stamp svg{width:14px;height:14px;color:#3ddc84}
+.wc.rv:not(.in) .stamp{transform:scale(.6) rotate(-6deg);opacity:0}
+/* over the counter: real products from the shop */
+.vshop{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding-bottom:26px}
+.vp{position:relative;width:92px;height:92px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 14px 28px -14px rgba(13,33,69,.45);margin:0 -9px;transform:rotate(var(--r));transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.vp:nth-child(2){z-index:1;transform:translateY(-10px) scale(1.06);transition-delay:.12s}
+.vp:nth-child(3){transition-delay:.24s}
+.vp img{width:78%;height:78%;object-fit:contain}
+.wc.rv:not(.in) .vp{opacity:0;transform:translateY(24px) rotate(var(--r))}
+.vcart{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;background:var(--card);color:var(--ink);font-size:12px;font-weight:600;padding:7px 13px;border-radius:99px;box-shadow:0 10px 22px -12px rgba(13,33,69,.5);white-space:nowrap;z-index:2}
+.vcart svg{width:15px;height:15px;color:var(--red)}
+
+/* 2 · Consultation: the real flow on the left, the offer on the right. */
+.cx{position:relative;display:grid;gap:28px;background:radial-gradient(90% 110% at 0% 0%,rgba(75,124,201,.45) 0%,transparent 50%),linear-gradient(150deg,#0d2145,#0a1a38);color:#fff;border-radius:32px;padding:34px 20px 20px;overflow:hidden}
+@media(min-width:900px){.cx{grid-template-columns:1.1fr .9fr;gap:56px;padding:56px;align-items:center}}
+.cx .ey{color:#ff9aa0}
+.cx h2{color:#fff;margin-bottom:14px}
+.cx .lead{color:#c9d5ee;font-size:17px;margin:0 0 24px;max-width:520px}
+.cxs{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.cxs li{position:relative;display:flex;gap:14px;align-items:flex-start;padding:10px 0}
+.cxs li>span{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;flex:none;color:#9fb8f0}
+.cxs li>span svg{width:19px;height:19px}
+.cxs li:not(:last-child)::after{content:"";position:absolute;left:19.5px;top:52px;bottom:-8px;width:1px;background:rgba(255,255,255,.16)}
+.cxs li:last-child>span{background:var(--red);border-color:transparent;color:#fff}
+.cxs b{display:block;color:#fff;font-weight:600;font-size:15.5px;margin-bottom:1px}
+.cxs div{color:#b8c6e3;font-size:14.5px;line-height:1.45}
+.cc2{background:var(--card);color:var(--ink);border-radius:24px;padding:26px 22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.65)}
+@media(min-width:900px){.cc2{padding:30px}}
+.cct{font-size:14px;font-weight:600;color:var(--muted)}
+.ccp{display:flex;align-items:baseline;font-size:68px;font-weight:600;letter-spacing:-2.5px;line-height:1;margin:10px 0 16px;font-variant-numeric:tabular-nums}
+.ccp .cur{font-size:30px;letter-spacing:0;align-self:flex-start;margin:6px 3px 0 0}
+.ccp small{font-size:15px;font-weight:500;letter-spacing:0;color:var(--muted);margin-left:10px;white-space:nowrap}
+.s3 h2,.s3 .sub{text-wrap:balance}
+/* Phones: the trust points become one compact row, and the card visuals are a little shorter. */
+@media(max-width:759px){
+  .wv{height:200px}
+  .vtile{height:92px}
+  .wc h3{font-size:21px}
+  .s3 .tru{gap:0;border:1px solid var(--line);border-radius:20px;background:var(--card);overflow:hidden}
+  .s3 .tru>div{border:0;border-radius:0;padding:12px 16px;background:none}
+  .s3 .tru>div+div{border-top:1px solid var(--line)}
+  .s3 .tru span{width:38px;height:38px;border-radius:11px}
+  .s3 .tru span svg{width:18px;height:18px}
+  .cxs li{padding:8px 0}
+}
+.ccpay{display:flex;gap:10px;align-items:center;background:var(--tint);border-radius:14px;padding:12px 14px;font-size:14.5px;color:var(--muted);line-height:1.35}
+.ccpay b{color:var(--ink);font-weight:600}
+.ccpay svg{color:var(--red);width:20px;height:20px}
+.cc2 ul{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:11px;font-size:15px;line-height:1.4}
+.cc2 li{display:flex;gap:10px;align-items:flex-start}
+.cc2 li svg{color:#1f9d55;width:20px;height:20px;flex:none}
+.cce{margin:12px 0 0;font-size:12.5px;color:var(--muted);text-align:center}
+.cce b{color:var(--ink)}
+.tru{display:grid;gap:10px;margin-top:14px}
+@media(min-width:760px){.tru{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}}
+.tru>div{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.tru span{width:42px;height:42px;border-radius:12px;background:var(--tint);display:grid;place-items:center;color:var(--navy2);flex:none}
+.tru p{margin:0;font-size:14px;color:var(--muted);line-height:1.35}
+.tru b{display:block;color:var(--ink);font-size:15px;font-weight:600}
+
+/* 3 · How it works: a connected path; the line fills as you scroll. */
+.hw{list-style:none;padding:0;margin:0;display:grid;position:relative;view-timeline:--hw block}
+.hw li{position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;padding-bottom:30px}
+.hw li:last-child{padding-bottom:0}
+.hw::before,.hw::after{content:"";position:absolute;left:27px;top:30px;bottom:60px;width:2px;border-radius:2px;background:var(--line)}
+.hw::after{background:linear-gradient(var(--red),var(--navy2));transform-origin:top}
+.hn{position:relative;z-index:1;width:56px;height:56px;border-radius:18px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;color:var(--navy2);box-shadow:0 12px 26px -16px rgba(13,33,69,.45)}
+.hn svg{width:24px;height:24px}
+.hn i{position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font:700 12px/24px 'DM Sans',sans-serif;text-align:center;font-style:normal}
+.hw h3{margin:6px 0 6px;font-size:20px;font-weight:600;letter-spacing:-.2px}
+.hw p{margin:0 0 12px;color:var(--muted);font-size:15.5px}
+.hc{display:inline-block;font-size:13px;font-weight:600;color:var(--ink);background:var(--tint);border-radius:99px;padding:6px 12px;line-height:1.35}
+.hc a{color:var(--ink)}
+@media(min-width:860px){
+  .hw{grid-template-columns:repeat(3,1fr);gap:28px}
+  .hw li{display:block;padding:0}
+  .hw li>div{margin-top:20px}
+  .hw::before,.hw::after{left:28px;right:calc(33.333% - 28px);top:27px;bottom:auto;width:auto;height:2px}
+  .hw::after{transform-origin:left}
+}
+@supports (animation-timeline:view()){@media(prefers-reduced-motion:no-preference){
+  .hw::after{animation:hw-y linear both;animation-timeline:--hw;animation-range:entry 40% cover 60%}
+  @media(min-width:860px){.hw::after{animation-name:hw-x}}
+}}
+@keyframes hw-y{from{transform:scaleY(0)}}
+@keyframes hw-x{from{transform:scaleX(0)}}
+:root[data-theme="dark"] .tru span,:root[data-theme="dark"] .hn{color:#9fb8f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tru span,:root:not([data-theme="light"]) .hn{color:#9fb8f0}}
+@media(prefers-reduced-motion:reduce){.vdot{animation:none}}
+@media(hover:hover){.js .wc.rv.done{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}.js .wc.rv.done:hover{transform:translateY(-4px)}}
+
+/* Sections ease in as they arrive (only when scripts run; content is never hidden without them). */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.p,#pd[open],.cart.bump{animation:none}}
+</style>
+<script>
+// Runs before first paint: mark that scripts work (for the reveals) and skip the opening
+// animation if it already played in this visit.
+document.documentElement.classList.add("js");
+try{if(sessionStorage.getItem("gb-ld"))document.documentElement.classList.add("ld-seen");else sessionStorage.setItem("gb-ld","1")}catch(e){}
+</script>
+</head>
+<body>
+<div id="ld" aria-hidden="true"><div class="ldc">
+  <div class="ldm">G</div>
+  <svg viewBox="0 0 180 34"><path class="br" d="M8 28 C 48 2, 132 2, 172 28"/><circle class="pt a" cx="8" cy="28" r="4"/><circle class="pt b" cx="172" cy="28" r="4"/></svg>
+  <div class="ldw">Grace<span>Bridge</span></div>
+</div></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="pill" viewBox="0 0 24 24"><rect x="2.5" y="8" width="19" height="8" rx="4" transform="rotate(-35 12 12)"/><path d="M9.2 7.4l5.5 8.2" /></symbol>
+<symbol id="drop" viewBox="0 0 24 24"><path d="M12 3s6 6.2 6 10.5a6 6 0 0 1-12 0C6 9.2 12 3 12 3z"/></symbol>
+<symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19c3-5 6-7 9-8"/></symbol>
+<symbol id="cross" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+<symbol id="truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+<symbol id="video" viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="13" height="11" rx="2.5"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></symbol>
+<symbol id="mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="card" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6.5 14.5h4"/></symbol>
+<symbol id="bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+</svg>
+
+<header><div class="w">
+  <a class="logo" href="#top"><span class="mk">G</span>GraceBridge</a>
+  <nav><a href="#ways">Order</a><a href="#consult">Consultations</a><a href="#how">How it works</a><a href="#shop">Medication</a><a href="#faq">FAQ</a></nav>
+  <button class="cart" aria-label="Cart" onclick="openCart()"><svg class="i"><use href="#bag"/></svg><b id="n">0</b></button>
+  <button class="btn" id="auth" onclick="authBtn()">Log in</button>
+</div></header>
+
+<div class="hero2" id="top">
+  <img src="img/hero.jpg" fetchpriority="high" decoding="async" alt="A smiling nurse in navy scrubs hugging a laughing child" width="1000" height="1500">
+  <div class="w">
+    <h1>See a doctor. Get closer to better health.</h1>
+    <p class="l">Get an online prescription from R500, order your medication, and have it delivered to your door in Johannesburg and Pretoria.</p>
+    <div class="acts"><button class="btn dk" onclick="openBook()">Book a consultation</button><button class="btn lt" onclick="go('ways')">Order medication</button></div>
+    <div class="docs"><div class="dl"><i></i>Doctors online and available now</div><div class="dp" role="img" aria-label="Doctors online now"><span style="background:#9db7e8"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg></span><span style="background:#c7d6f2"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg></span><span style="background:#f0c9b8"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg></span><span style="background:#b9d9cf"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg></span><span class="more2">+2</span></div></div>
+  </div>
+</div>
+
+<section id="ways" class="s3"><div class="w">
+  <div class="sh">
+    <p class="ey">Get your medication</p>
+    <h2>Three ways to get what you need</h2>
+    <p class="sub">Choose what suits you. A pharmacist checks every order, and it’s delivered to your door.</p>
+  </div>
+  <div class="wy">
+    <article class="wc wc-1">
+      <div class="wv" aria-hidden="true">
+        <div class="vcall">
+          <div class="vtop"><span class="vdot"></span>Video consultation<span class="vtag">Connected</span></div>
+          <div class="vtile">
+            <svg viewBox="0 0 40 40" class="vav"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg>
+            <span class="vlab">Your doctor</span>
+            <span class="vme"><svg viewBox="0 0 40 40"><circle cx="20" cy="15" r="7"/><path d="M6 40c0-9 6-14 14-14s14 5 14 14z"/></svg></span>
+          </div>
+          <div class="vbar"><i><svg class="i"><use href="#mic"/></svg></i><i><svg class="i"><use href="#video"/></svg></i><i class="end"><svg class="i"><use href="#phone"/></svg></i></div>
+        </div>
+      </div>
+      <div class="wb">
+        <span class="wn">01 · Most complete</span>
+        <h3>See a doctor online</h3>
+        <p>A R500 video consultation from your phone. If treatment is needed, your prescription is issued and filled by our pharmacy partners.</p>
+        <button class="btn" onclick="openBook()">Book a consultation</button>
+      </div>
+    </article>
+    <article class="wc wc-2">
+      <div class="wv" aria-hidden="true">
+        <div class="vrx">
+          <div class="doc">
+            <div class="dh2"><b>Rx</b><span></span></div>
+            <span class="ln" style="width:88%"></span><span class="ln" style="width:72%"></span><span class="ln" style="width:80%"></span><span class="ln" style="width:46%"></span>
+            <div class="sig"><svg viewBox="0 0 80 20"><path d="M2 14c8-10 12 6 18-2s8-8 12 0 10 6 16-4 12 4 30-2"/></svg></div>
+          </div>
+          <div class="stamp"><svg class="i"><use href="#check"/></svg>Checked by a pharmacist</div>
+        </div>
+      </div>
+      <div class="wb">
+        <span class="wn">02</span>
+        <h3>Upload your prescription</h3>
+        <p>Already have one? Send a photo or PDF. A pharmacist reviews it, usually within 30 minutes, then you pay and we deliver.</p>
+        <button class="btn" onclick="openRx()">Upload prescription</button>
+      </div>
+    </article>
+    <article class="wc wc-3">
+      <div class="wv" aria-hidden="true">
+        <div class="vshop">
+          <div class="vp" style="--r:-7deg"><img src="img/products/34.jpg" alt="" loading="lazy" decoding="async" width="220" height="220"></div>
+          <div class="vp" style="--r:0deg"><img src="img/products/7.jpg" alt="" loading="lazy" decoding="async" width="220" height="220"></div>
+          <div class="vp" style="--r:7deg"><img src="img/products/6.jpg" alt="" loading="lazy" decoding="async" width="220" height="220"></div>
+          <div class="vcart"><svg class="i"><use href="#bag"/></svg>Added to cart</div>
+        </div>
+      </div>
+      <div class="wb">
+        <span class="wn">03</span>
+        <h3>Order over the counter</h3>
+        <p>Everyday medication and health essentials from trusted brands. Add them to your cart and check out in minutes.</p>
+        <button class="btn" onclick="go('shop')">Browse medication</button>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="consult" class="s3"><div class="w">
+  <div class="cx">
+    <div class="cxl">
+      <p class="ey">Online consultation</p>
+      <h2>A doctor, without the waiting room.</h2>
+      <p class="lead">Speak to a doctor by video from your phone. If treatment is needed, you get an online prescription and your medication is delivered to your door.</p>
+      <ol class="cxs" aria-label="How a consultation works">
+        <li><span><svg class="i"><use href="#clock"/></svg></span><div><b>Request a time</b>Tell us what you need help with and when suits you.</div></li>
+        <li><span><svg class="i"><use href="#check"/></svg></span><div><b>A doctor accepts</b>Your video link appears in your account.</div></li>
+        <li><span><svg class="i"><use href="#video"/></svg></span><div><b>Join by video</b>From wherever you are. No queues, no travelling.</div></li>
+        <li><span><svg class="i"><use href="#card"/></svg></span><div><b>Pay after it’s done</b>R500, only once your consultation is complete.</div></li>
+      </ol>
+    </div>
+    <div class="cxc">
+      <div class="cc2">
+        <div class="cct">Online consultation</div>
+        <div class="ccp"><span class="cur">R</span>500<small>per consultation</small></div>
+        <div class="ccpay"><svg class="i"><use href="#card"/></svg><span><b>Pay after your consultation,</b> not before.</span></div>
+        <ul>
+          <li><svg class="i"><use href="#check"/></svg>Speak to a doctor from your phone</li>
+          <li><svg class="i"><use href="#check"/></svg>Online prescription if the doctor recommends treatment</li>
+          <li><svg class="i"><use href="#check"/></svg>Medication delivered to your door</li>
+          <li><svg class="i"><use href="#check"/></svg>If a doctor can’t take your request, you’re not charged</li>
+        </ul>
+        <button class="btn full" onclick="openBook()">Book a consultation</button>
+        <p class="cce">Not for emergencies. In an emergency, call <b>10177</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="tru">
+    <div><span><svg class="i"><use href="#phone"/></svg></span><p><b>Consult online</b>From wherever you are</p></div>
+    <div><span><svg class="i"><use href="#truck"/></svg></span><p><b>Delivered to your door</b>Johannesburg and Pretoria</p></div>
+    <div><span><svg class="i"><use href="#lock"/></svg></span><p><b>Private and secure</b>Handled in line with POPIA</p></div>
+  </div>
+</div></section>
+
+<section id="how" class="s3"><div class="w">
+  <div class="sh">
+    <p class="ey">How it works</p>
+    <h2>From consultation to your door</h2>
+    <p class="sub">Three steps, with a doctor or pharmacist involved at each one.</p>
+  </div>
+  <ol class="hw">
+    <li>
+      <span class="hn"><svg class="i"><use href="#phone"/></svg><i>1</i></span>
+      <div><h3>Consult or upload</h3><p>See a doctor online for R500, or upload a prescription you already have.</p><span class="hc">R500 consultation · or your own prescription</span></div>
+    </li>
+    <li>
+      <span class="hn"><svg class="i"><use href="#cross"/></svg><i>2</i></span>
+      <div><h3>Get your prescription</h3><p>If the doctor recommends treatment, your prescription is issued online, and a pharmacist prepares your order.</p><span class="hc">Uploaded prescriptions: usually reviewed within 30 minutes</span></div>
+    </li>
+    <li>
+      <span class="hn"><svg class="i"><use href="#truck"/></svg><i>3</i></span>
+      <div><h3>Delivered to your door</h3><p>Your medication is delivered in our Johannesburg and Pretoria delivery areas.</p><span class="hc">R45 flat delivery · <a href="#" onclick="openPriv('pv-delivery');return false">See delivery areas</a></span></div>
+    </li>
+  </ol>
+</div></section>
+
+<section id="shop"><div class="w">
+  <h2>Medication and health essentials</h2>
+  <p class="sub">Trusted over-the-counter brands, delivered by our pharmacy partners.</p>
+  <div class="sb"><svg class="i"><use href="#pill"/></svg><input id="q" type="search" enterkeyhint="search" placeholder="Search by name, brand or form" aria-label="Search medication"><button class="clr" id="qx" type="button" aria-label="Clear search" hidden onclick="$('q').value='';lim=12;draw();$('q').focus()">×</button></div>
+  <div class="cats" id="cats"></div>
+  <div class="tb"><span id="cnt" aria-live="polite"></span><label><span class="vh">Sort by</span><select id="so" aria-label="Sort products" onchange="lim=12;draw()"><option value="">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="az">Name: A–Z</option></select></label></div>
+  <div class="grid" id="grid"></div>
+  <p class="note">Prices are indicative until confirmed with our pharmacy partners. Prescription medication requires a valid prescription or a GraceBridge consultation. Always read the label and follow the directions for use.</p>
+  <p class="note">Minimum medication order R100. Flat delivery fee of R45 per order. We deliver in selected areas of Johannesburg and Pretoria. <a href="#" onclick="openPriv('pv-delivery');return false" style="color:var(--ink)">See delivery areas</a>.</p>
+</div></section>
+
+<section id="faq"><div class="w">
+  <h2>Common questions</h2>
+  <details><summary>How much is a consultation?</summary><p>An online consultation costs R500.</p></details>
+  <details><summary>Can I get a prescription online?</summary><p>Yes. Book an online consultation for R500. If the doctor decides medication is appropriate, they issue a prescription, and we prepare and deliver your order.</p></details>
+  <details><summary>I already have a prescription. Can I use it?</summary><p>Yes. Upload a photo or PDF of your prescription. A pharmacist reviews it, confirms availability and price, and arranges delivery.</p></details>
+  <details><summary>Do I need a prescription for everything?</summary><p>No. Over-the-counter items can be ordered directly. Prescription medication needs a valid prescription.</p></details>
+  <details><summary>Where do you deliver?</summary><p>We deliver in selected areas of Johannesburg (northern suburbs including Sandton, Rosebank, Randburg, Fourways, Midrand, Bryanston and Sunninghill) and Pretoria (Pretoria East and Centurion). You can confirm your suburb when you enter your address at checkout.</p></details>
+  <details><summary>How much is delivery, and is there a minimum order?</summary><p>Delivery is a flat R45 per order, and the minimum medication order is R100.</p></details>
+  <details><summary>How is my personal information protected?</summary><p>We process your personal and health information in line with the Protection of Personal Information Act (POPIA). Read our <a href="#" onclick="openPriv('pv-privacy');return false" style="color:var(--ink)">Privacy Policy</a>.</p></details>
+</div></section>
+
+<footer><div class="w">
+  <div><b style="color:var(--ink)">GraceBridge South Africa</b> · gracebridge.co.za</div>
+  <div class="fl"><a href="#" onclick="openPriv('pv-privacy');return false">Privacy Policy</a><a href="#" onclick="openPriv('pv-popia');return false">POPIA Notice</a><a href="#" onclick="openPriv('pv-delivery');return false">Delivery Areas and Fees</a></div>
+  <div>GraceBridge processes personal and health information in line with the Protection of Personal Information Act 4 of 2013 (POPIA). We only collect what we need to provide your consultation, prescription and delivery, and we never sell your information.</div>
+  <div>GraceBridge does not provide emergency care. In an emergency, call 10177 or go to your nearest emergency room.</div>
+  <div>© 2026 GraceBridge South Africa. All rights reserved.</div>
+</div></footer>
+
+<div id="app" hidden></div>
+<div class="toast" id="ts" hidden role="status"></div>
+<div class="ov" id="ov" onclick="closeAll()"></div>
+<aside class="dr" id="dr" aria-label="Your cart"><div class="dh"><h3 id="dt">Your cart</h3><button class="x" aria-label="Close" onclick="closeAll()">×</button></div><div class="db" id="dbody"></div><div class="df" id="dfoot"></div></aside>
+<dialog id="pd" aria-labelledby="pdh"><button class="pdx" aria-label="Close" onclick="closeP()">×</button><div class="pdb" id="pdb"></div><div class="pdbar" id="pdbar"></div></dialog>
+<dialog id="bk"><div class="dh"><h3 id="bt">Book a consultation</h3><button class="x" aria-label="Close" onclick="bk.close()">×</button></div><div class="db" id="bkb"></div></dialog>
+<dialog id="pv"><div class="dh"><h3 id="pvt">Privacy and POPIA</h3><button class="x" aria-label="Close" onclick="pv.close()">×</button></div><div class="db">
+<h4 id="pv-privacy">Privacy Policy</h4>
+<p><b>Last updated 1 November 2026.</b> GraceBridge South Africa (“GraceBridge”, “we”) is the responsible party under the Protection of Personal Information Act 4 of 2013 (POPIA) for the personal information described below.</p>
+<h4>1. What we collect</h4>
+<ul><li>Account details: your name, email address, phone number and password.</li><li>Delivery details: your delivery address, suburb, city and postal code.</li><li>Health information: prescriptions you upload, the reason you give for a consultation, and notes to our pharmacist.</li><li>Order information: the items you order, order status and payment status. Card details are handled by our payment provider and are not stored by GraceBridge.</li></ul>
+<h4>2. Why we use it</h4>
+<ul><li>To arrange your online consultation and issue prescriptions.</li><li>To let a pharmacist review your prescription and prepare your order.</li><li>To deliver your order and contact you about it.</li><li>To process payments, prevent fraud and keep our service secure.</li><li>To meet our legal and professional record-keeping duties.</li></ul>
+<h4>3. Health information and consent</h4>
+<p>Health information is special personal information under POPIA. We process it only to provide the service you ask for, and with your consent, which we ask for when you place an order or upload a prescription. You can withdraw your consent at any time, but we may then be unable to complete your order or consultation.</p>
+<h4>4. Who we share it with</h4>
+<ul><li>Doctors and pharmacists involved in your consultation or order.</li><li>Delivery partners, who receive only your name, phone number and delivery address.</li><li>Our payment provider and technology and hosting providers, who process information on our behalf under written agreements.</li><li>Authorities, where the law requires it.</li></ul>
+<p>We do not sell your personal information.</p>
+<h4>5. Storage outside South Africa</h4>
+<p>Some of our technology providers may store information outside South Africa. Where this happens, we make sure the information stays protected as POPIA requires.</p>
+<h4>6. Security and breaches</h4>
+<p>We use reasonable technical and organisational measures to protect your information. If there is a security compromise that affects you, we will notify you and the Information Regulator as POPIA requires.</p>
+<h4>7. How long we keep it</h4>
+<p>We keep personal information only for as long as we need it for the purpose it was collected, or as the law requires, including health and pharmacy record-keeping rules. After that we delete or de-identify it.</p>
+<h4 id="pv-popia">Your rights under POPIA</h4>
+<ul><li>Ask what personal information we hold about you and ask for a copy.</li><li>Ask us to correct or delete information that is inaccurate, out of date or no longer needed.</li><li>Object to our processing of your information.</li><li>Withdraw your consent.</li><li>Opt out of direct marketing at any time.</li><li>Complain to the Information Regulator.</li></ul>
+<p>To use any of these rights, email our Information Officer at <b>privacy@gracebridge.co.za</b>. We will respond within a reasonable time.</p>
+<h4>Information Regulator (South Africa)</h4>
+<p>If you are not satisfied with how we handle your information, you may complain to the Information Regulator.<br>JD House, 27 Stiemens Street, Braamfontein, Johannesburg<br>Complaints: POPIAComplaints@inforegulator.org.za<br>Enquiries: enquiries@inforegulator.org.za · 010 023 5200<br>Website: inforegulator.org.za</p>
+<h4 id="pv-delivery">Delivery areas and fees</h4>
+<table><tr><td>Delivery fee</td><td>R45 flat per order</td></tr><tr><td>Minimum order</td><td>R100 for medication orders, before delivery</td></tr><tr><td>Johannesburg</td><td>Northern suburbs: Sandton, Sunninghill, Bryanston, Rosebank, Parktown, Randburg, Fourways, Midrand, Illovo, Melrose, Hyde Park, Morningside, Rivonia, Lonehill, Dainfern, Craighall, Woodmead and Johannesburg CBD</td></tr><tr><td>Pretoria</td><td>Pretoria East and Centurion: Menlyn, Brooklyn, Waterkloof, Lynnwood, Garsfontein, Faerie Glen, Moreleta Park, Mooikloof, Silver Lakes, Equestria, Constantia Park, Centurion, Irene, Eldoraigne, Highveld, Lyttelton, Rooihuiskraal, Wierda Park, Zwartkop and Die Hoewes</td></tr></table>
+<p style="margin-top:10px">We do not deliver outside these areas yet. A pharmacist checks every order before it is dispatched.</p>
+</div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+var P=[{"id":1,"n":"REHIDRAT BLACKCURRANT 14 G SAC 6S","p":120.99,"c":"Stomach","im":"img/products/1.jpg","d":"Rehidrat Blackcurrant","f":"Sachets","k":"6 × 14 g"},{"id":2,"n":"Efferflu C Immune Boost Eff 20","p":121.99,"c":"Vitamins and wellness","im":"img/products/2.jpg","d":"Efferflu C Immune Boost","f":"Effervescent tablets","k":"20 tablets"},{"id":3,"n":"STELLAR-MAMA 30 DAY PACK KIT 1S","p":349.99,"c":"Vitamins and wellness","im":"img/products/3.jpg","d":"Stellar-Mama","f":"Kit","k":"30-day pack"},{"id":4,"n":"Panado Paed Strawberry Syr 100ml","p":81.99,"c":"Pain and fever","im":"img/products/4.jpg","d":"Panado Paediatric Strawberry","f":"Syrup","k":"100 ml"},{"id":5,"n":"BENYLIN CHILDRENS WET COUGH 50 MG 5 ML 100 ML SYR 1S","p":87.99,"c":"Cough, cold and flu","im":"img/products/5.jpg","d":"Benylin Children’s Wet Cough","f":"Syrup","k":"100 ml · 50 mg/5 ml"},{"id":6,"n":"STREPSILS HONEY / LEMON LOZ 24S","p":106.99,"c":"Cough, cold and flu","im":"img/products/6.jpg","d":"Strepsils Honey & Lemon","f":"Lozenges","k":"24 lozenges"},{"id":7,"n":"Gaviscon Advance Sachets 12 x 10ml","p":137.99,"c":"Stomach","im":"img/products/7.jpg","d":"Gaviscon Advance","f":"Sachets","k":"12 × 10 ml"},{"id":8,"n":"Sudocrem Barrier Cream 125g","p":168.99,"c":"Skin and first aid","im":"img/products/8.jpg","d":"Sudocrem","f":"Cream","k":"125 g"},{"id":9,"n":"URI-KLEER MAINTENANCE CAP 28S","p":273.99,"c":"Vitamins and wellness","im":"img/products/9.jpg","d":"Uri-Kleer Maintenance","f":"Capsules","k":"28 capsules"},{"id":10,"n":"VICKS ACTAPLUS WET & DRY COUGH 100 ML SYR 1S","p":89.99,"c":"Cough, cold and flu","im":"img/products/10.jpg","d":"Vicks ActaPlus Wet & Dry Cough","f":"Syrup","k":"100 ml"},{"id":11,"n":"Compral Pain Tab 100","p":119.99,"c":"Pain and fever","im":"img/products/11.jpg","d":"Compral Pain","f":"Tablets","k":"100 tablets"},{"id":12,"n":"CAL-C-VITA EFT 20S","p":174.99,"c":"Vitamins and wellness","im":"img/products/12.jpg","d":"Cal-C-Vita","f":"Effervescent tablets","k":"20 tablets"},{"id":13,"n":"REUTERINA DAILY CHU 30S","p":280.99,"c":"Stomach","im":"img/products/13.jpg","d":"Reuterina Daily","f":"Chewable tablets","k":"30 tablets"},{"id":14,"n":"Tasectan Cap 8","p":154.99,"c":"Stomach","im":"img/products/14.jpg","d":"Tasectan","f":"Capsules","k":"8 capsules"},{"id":15,"n":"LACSON 3.3 G 5 ML 150 ML SYR 1S","p":88.99,"c":"Stomach","im":"img/products/15.jpg","d":"Lacson","f":"Syrup","k":"150 ml · 3.3 g/5 ml"},{"id":16,"n":"Bioplus Booster Original Sac 10ml","p":6.99,"c":"Vitamins and wellness","im":"img/products/16.jpg","d":"Bioplus Booster Original","f":"Sachet","k":"10 ml"},{"id":17,"n":"CAL-C-VITA EFT 30S","p":226.99,"c":"Vitamins and wellness","im":"img/products/17.jpg","d":"Cal-C-Vita","f":"Effervescent tablets","k":"30 tablets"},{"id":18,"n":"Accu-Chek Active Strips 50","p":169.99,"c":"Devices and testing","im":"img/products/18.jpg","d":"Accu-Chek Active Test Strips","f":"Test strips","k":"50 strips"},{"id":19,"n":"Zinplex Baby Bum Spray 100ml","p":71.99,"c":"Skin and first aid","im":"img/products/19.jpg","d":"Zinplex Baby Bum","f":"Spray","k":"100 ml"},{"id":20,"n":"Benylin Wet Cough Mucus Syr 200ml","p":147.99,"c":"Cough, cold and flu","im":"img/products/20.jpg","d":"Benylin Wet Cough Mucus","f":"Syrup","k":"200 ml"},{"id":21,"n":"Probiflora Rx Cap 10","p":83.99,"c":"Stomach","im":"img/products/21.jpg","d":"Probiflora Rx","f":"Capsules","k":"10 capsules"},{"id":22,"n":"Kuraflo Portable Handheld Mesh Nebuliser Set","p":992.99,"c":"Devices and testing","im":"img/products/22.jpg","d":"Kuraflo Portable Mesh Nebuliser","f":"Nebuliser set","k":"1 set"},{"id":23,"n":"SINUPRET PLUS TAB 20S","p":237.99,"c":"Allergy and sinus","im":"img/products/23.jpg","d":"Sinupret Plus","f":"Tablets","k":"20 tablets"},{"id":24,"n":"Ovivance Tabs Mni 60's","p":377.99,"c":"Vitamins and wellness","im":"img/products/24.jpg","d":"Ovivance Mini","f":"Tablets","k":"60 tablets"},{"id":25,"n":"Wormstop Sus 30ml","p":29.99,"c":"Stomach","im":"img/products/25.jpg","d":"Wormstop","f":"Suspension","k":"30 ml"},{"id":26,"n":"Valoid Tab 10","p":50.99,"c":"Stomach","im":"","d":"Valoid","f":"Tablets","k":"10 tablets"},{"id":27,"n":"STREPSILS INTENSIVE 8.75 MG LOZ 12S","p":60.99,"c":"Cough, cold and flu","im":"img/products/27.jpg","d":"Strepsils Intensive","f":"Lozenges","k":"12 × 8.75 mg"},{"id":28,"n":"Spasmend Tab 24","p":57.99,"c":"Stomach","im":"","d":"Spasmend","f":"Tablets","k":"24 tablets"},{"id":29,"n":"Sinumax Allergy Cap 20","p":123.99,"c":"Allergy and sinus","im":"","d":"Sinumax Allergy","f":"Capsules","k":"20 capsules"},{"id":30,"n":"ALCOPHYLLEX 200 ML SYR 1S","p":31.99,"c":"Cough, cold and flu","im":"","d":"Alcophyllex","f":"Syrup","k":"200 ml"},{"id":31,"n":"Dilinct Dry Syr 200ml","p":114.99,"c":"Cough, cold and flu","im":"","d":"Dilinct Dry","f":"Syrup","k":"200 ml"},{"id":32,"n":"BENYLIN ORIGINAL 200 ML SYR 1S","p":155.99,"c":"Cough, cold and flu","im":"","d":"Benylin Original","f":"Syrup","k":"200 ml"},{"id":33,"n":"TEXA ALLERGY 10 MG TAB 10S","p":39.99,"c":"Allergy and sinus","im":"","d":"Texa Allergy","f":"Tablets","k":"10 × 10 mg"},{"id":34,"n":"Panado Tab 50","p":71.99,"c":"Pain and fever","im":"img/products/34.jpg","d":"Panado","f":"Tablets","k":"50 tablets"},{"id":35,"n":"Corenza Cold And Flu Syr For Children 200ml","p":173.99,"c":"Cough, cold and flu","im":"","d":"Corenza Cold & Flu for Children","f":"Syrup","k":"200 ml"},{"id":36,"n":"BRONCHOPED 200 ML SYR 1S","p":138.99,"c":"Cough, cold and flu","im":"","d":"Bronchoped","f":"Syrup","k":"200 ml"},{"id":37,"n":"Empaped 125mg Sup 10","p":107.99,"c":"Pain and fever","im":"","d":"Empaped","f":"Suppositories","k":"10 × 125 mg"},{"id":38,"n":"ILIADIN KIDS 0.25 MG 1 ML 10 ML NAS 1S","p":127.99,"c":"Allergy and sinus","im":"img/products/38.jpg","d":"Iliadin Kids","f":"Nasal spray","k":"10 ml · 0.25 mg/ml"},{"id":39,"n":"K-Fenak OTC Tab 9","p":32.99,"c":"Pain and fever","im":"","d":"K-Fenak OTC","f":"Tablets","k":"9 tablets"},{"id":40,"n":"Norflex Co Tab 24","p":77.99,"c":"Pain and fever","im":"","d":"Norflex Co","f":"Tablets","k":"24 tablets"},{"id":41,"n":"Prozen Cap 30","p":190.99,"c":"Vitamins and wellness","im":"img/products/41.jpg","d":"Prozen","f":"Capsules","k":"30 capsules"},{"id":42,"n":"AMUCO 200 MG EFT 20S","p":110.99,"c":"Cough, cold and flu","im":"img/products/42.jpg","d":"Amuco","f":"Effervescent tablets","k":"20 × 200 mg"},{"id":43,"n":"Andolex C Oral Rinse 200ml S","p":192.99,"c":"Cough, cold and flu","im":"img/products/43.jpg","d":"Andolex-C","f":"Oral rinse","k":"200 ml"},{"id":44,"n":"ALLECET 1 MG 1 ML 150 ML SYR 1S","p":219.99,"c":"Allergy and sinus","im":"","d":"Allecet","f":"Syrup","k":"150 ml · 1 mg/ml"},{"id":45,"n":"SMECTA 3 G SAC 10S","p":172.99,"c":"Stomach","im":"img/products/45.jpg","d":"Smecta","f":"Sachets","k":"10 × 3 g"},{"id":46,"n":"FLONASE 120 DOSE 50 MCG AQS 1S","p":131.99,"c":"Allergy and sinus","im":"","d":"Flonase","f":"Nasal spray","k":"120 doses · 50 mcg"},{"id":47,"n":"NUROFEN FOR CHILDREN S/BERRY 100 MG 5 ML 100 ML SUS 1S","p":99.99,"c":"Pain and fever","im":"","d":"Nurofen for Children Strawberry","f":"Suspension","k":"100 ml · 100 mg/5 ml"},{"id":48,"n":"ALLERWAY 5 MG TAB 30S","p":145.99,"c":"Allergy and sinus","im":"","d":"Allerway","f":"Tablets","k":"30 × 5 mg"},{"id":49,"n":"NUROFEN PLUS TAB 24S","p":116.99,"c":"Pain and fever","im":"","d":"Nurofen Plus","f":"Tablets","k":"24 tablets"},{"id":50,"n":"Salex Metered spray 30ml","p":129.99,"c":"Allergy and sinus","im":"img/products/50.jpg","d":"Salex","f":"Metered spray","k":"30 ml"},{"id":51,"n":"Bio-strath syrup 200ml","p":317.99,"c":"Vitamins and wellness","im":"img/products/51.jpg","d":"Bio-Strath","f":"Syrup","k":"200 ml"},{"id":52,"n":"NeuroVance syrup 200ml","p":224.99,"c":"Vitamins and wellness","im":"img/products/52.jpg","d":"NeuroVance","f":"Syrup","k":"200 ml"},{"id":53,"n":"BC56 Wound Healer Cream 20g","p":107.99,"c":"Skin and first aid","im":"img/products/53.jpg","d":"BC56 Wound Healer","f":"Cream","k":"20 g"},{"id":54,"n":"Rescue Natura tablets 150","p":209.99,"c":"Vitamins and wellness","im":"img/products/54.jpg","d":"Rescue Natura","f":"Tablets","k":"150 tablets"},{"id":55,"n":"COVAREX 2 % 40 G CRE 1S","p":121.99,"c":"Baby and kids","im":"img/products/55.jpg","d":"Covarex","f":"Cream","k":"40 g · 2%"},{"id":56,"n":"Epi-Max Baby/Junior Body Wash 450ml","p":106.99,"c":"Baby and kids","im":"img/products/56.jpg","d":"Epi-Max Baby/Junior","f":"Body wash","k":"450 ml"},{"id":57,"n":"TELFAST 30 MG 5 ML 150 ML SUS 1S","p":192.99,"c":"Allergy and sinus","im":"img/products/57.jpg","d":"Telfast","f":"Suspension","k":"150 ml · 30 mg/5 ml"},{"id":58,"n":"Linctagon Throat Lollies Cherry 12's","p":111.99,"c":"Baby and kids","im":"img/products/58.jpg","d":"Linctagon Throat Lollies Cherry","f":"Lollies","k":"12 lollies"},{"id":59,"n":"Linctagon C Jnr Cold & Flu Syr 100ml","p":114.99,"c":"Baby and kids","im":"img/products/59.jpg","d":"Linctagon C Junior Cold & Flu","f":"Syrup","k":"100 ml"},{"id":60,"n":"FLO KIDS SALINE 15 ML NAS 1S","p":224.99,"c":"Baby and kids","im":"img/products/60.jpg","d":"Flo Kids Saline","f":"Nasal spray","k":"15 ml"},{"id":61,"n":"ILIADIN KIDS 0.25 MG 1 ML 10 ML NOD 1S","p":81.99,"c":"Baby and kids","im":"img/products/61.jpg","d":"Iliadin Kids","f":"Nose drops","k":"10 ml · 0.25 mg/ml"},{"id":62,"n":"Sinupret syrup 100ml","p":154.99,"c":"Allergy and sinus","im":"img/products/62.jpg","d":"Sinupret","f":"Syrup","k":"100 ml"},{"id":63,"n":"Otrivin Paediatric Nasal spray 10ml","p":122.99,"c":"Baby and kids","im":"img/products/63.jpg","d":"Otrivin Paediatric","f":"Nasal spray","k":"10 ml"},{"id":64,"n":"PHARYLEX CHILD SPRAY 20ML","p":155.99,"c":"Baby and kids","im":"img/products/64.jpg","d":"Pharylex Child","f":"Spray","k":"20 ml"},{"id":65,"n":"Panado Alcohol&Sugar Free Paed Syr 100ml","p":84.99,"c":"Baby and kids","im":"img/products/65.jpg","d":"Panado Paediatric Alcohol & Sugar Free","f":"Syrup","k":"100 ml"},{"id":66,"n":"ACTAMOL 120 MG 5 ML 100 ML SYR 1S","p":25.99,"c":"Baby and kids","im":"img/products/66.jpg","d":"Actamol","f":"Syrup","k":"100 ml · 120 mg/5 ml"},{"id":67,"n":"Painblok Peppermint 100ml","p":22.99,"c":"Baby and kids","im":"img/products/67.jpg","d":"Painblok Peppermint","f":"","k":"100 ml"},{"id":68,"n":"REUTERINA JUNIOR CHU 30S","p":287.99,"c":"Baby and kids","im":"img/products/68.jpg","d":"Reuterina Junior","f":"Chewable tablets","k":"30 tablets"},{"id":69,"n":"TASECTAN PAED 250 MG SAC 10S","p":138.99,"c":"Baby and kids","im":"img/products/69.jpg","d":"Tasectan Paediatric","f":"Sachets","k":"10 × 250 mg"},{"id":70,"n":"Tasectan Paed Duo Tab 10","p":194.99,"c":"Baby and kids","im":"img/products/70.jpg","w":240.99,"d":"Tasectan Paediatric Duo","f":"Tablets","k":"10 tablets"},{"id":71,"n":"Lenolax Paediatric 64ml","p":62.99,"c":"Baby and kids","im":"img/products/71.jpg","w":82.99,"d":"Lenolax Paediatric","f":"","k":"64 ml"},{"id":72,"n":"Dulcolax Paed 5mg Supp 10","p":208.99,"c":"Baby and kids","im":"img/products/72.jpg","d":"Dulcolax Paediatric","f":"Suppositories","k":"10 × 5 mg"},{"id":73,"n":"Glycerin Paed Supp 12","p":169.99,"c":"Baby and kids","im":"img/products/73.jpg","d":"Glycerin Paediatric","f":"Suppositories","k":"12 suppositories"},{"id":74,"n":"ENTEROGERMINA 2BN 5ML SUS 20 INFANTS","p":257.99,"c":"Baby and kids","im":"img/products/74.jpg","d":"Enterogermina Infants","f":"Suspension","k":"20 × 5 ml"},{"id":75,"n":"Linctagon Junior Effer 12's Orange","p":156.99,"c":"Baby and kids","im":"img/products/75.jpg","d":"Linctagon Junior Orange","f":"Effervescent tablets","k":"12 tablets"},{"id":76,"n":"Scotts Emulsion Regular 100ml","p":94.99,"c":"Baby and kids","im":"img/products/76.jpg","d":"Scott’s Emulsion Regular","f":"Emulsion","k":"100 ml"},{"id":77,"n":"EFFERFLU C IMMUNE BOOSTER JNR EFT 20S","p":112.99,"c":"Baby and kids","im":"img/products/77.jpg","d":"Efferflu C Immune Booster Junior","f":"Effervescent tablets","k":"20 tablets"},{"id":78,"n":"ZINPLEX JUNIOR MAGNESIUM 200 ML SYR 1S","p":77.99,"c":"Baby and kids","im":"img/products/78.jpg","d":"Zinplex Junior Magnesium","f":"Syrup","k":"200 ml"},{"id":79,"n":"Airmune Kids Gummies 60","p":219.99,"c":"Baby and kids","im":"img/products/79.jpg","d":"Airmune Kids Gummies","f":"Gummies","k":"60 gummies"},{"id":80,"n":"Multivitamin Syrup 200ml Brunel","p":109.99,"c":"Baby and kids","im":"img/products/80.jpg","d":"Brunel Multivitamin","f":"Syrup","k":"200 ml"},{"id":81,"n":"Vi-Daylin Plus Iron 30ml","p":271.99,"c":"Baby and kids","im":"img/products/81.jpg","d":"Vi-Daylin Plus Iron","f":"","k":"30 ml"},{"id":82,"n":"Supavite Zinc plus Vit C SYRUP 200ML","p":102.99,"c":"Baby and kids","im":"img/products/82.jpg","d":"Supavite Zinc + Vitamin C","f":"Syrup","k":"200 ml"},{"id":83,"n":"Kiddies Vit C and Zinc","p":72.99,"c":"Baby and kids","im":"img/products/83.jpg","d":"Kiddies Vitamin C & Zinc","f":"","k":""},{"id":84,"n":"Ferrous Forte Somal Drops 30ml","p":394.99,"c":"Baby and kids","im":"img/products/84.jpg","d":"Ferrous Forte Somal","f":"Drops","k":"30 ml"},{"id":85,"n":"D-Drops 500iu Vitamin D3 30ml","p":101.99,"c":"Baby and kids","im":"img/products/85.jpg","d":"D-Drops Vitamin D3","f":"Drops","k":"30 ml · 500 IU"},{"id":86,"n":"SMART ZINC 10MG/5ML SYRUP 150ML","p":84.99,"c":"Baby and kids","im":"img/products/86.jpg","d":"Smart Zinc","f":"Syrup","k":"150 ml · 10 mg/5 ml"},{"id":87,"n":"BEROCCA JUNIOR BEANS CHEW TABS 60","p":249.99,"c":"Baby and kids","im":"img/products/87.jpg","d":"Berocca Junior Beans","f":"Chewable tablets","k":"60 tablets"},{"id":88,"n":"XTREME JUNIOR HUNGER BOOST SYR 200ML","p":160.99,"c":"Baby and kids","im":"img/products/88.jpg","d":"Xtreme Junior Hunger Boost","f":"Syrup","k":"200 ml"},{"id":89,"n":"XTREME JUNIOR VITAMIN DROPS 25ML","p":59.99,"c":"Baby and kids","im":"img/products/89.jpg","d":"Xtreme Junior Vitamin","f":"Drops","k":"25 ml"},{"id":90,"n":"Pregomega Plus 30 Day pk","p":374.99,"c":"Pregnancy and fertility","im":"img/products/90.jpg","d":"Pregomega Plus","f":"","k":"30-day pack"},{"id":91,"n":"BE-TABS FOLIC-ACID 5 MG TAB 100S","p":119.99,"c":"Pregnancy and fertility","im":"img/products/91.jpg","d":"Be-Tabs Folic Acid","f":"Tablets","k":"100 × 5 mg"},{"id":92,"n":"Pregnavit M capsules 30","p":177.99,"c":"Pregnancy and fertility","im":"img/products/92.jpg","d":"Pregnavit M","f":"Capsules","k":"30 capsules"},{"id":93,"n":"STELLAR ACTIV-FOLATE 120 DAY 500 MCG TAB 120S","p":324.99,"c":"Pregnancy and fertility","im":"img/products/93.jpg","d":"Stellar Activ-Folate 120-Day","f":"Tablets","k":"120 × 500 mcg"},{"id":94,"n":"CHELA-PREG TAB 30S","p":208.99,"c":"Pregnancy and fertility","im":"img/products/94.jpg","d":"Chela-Preg","f":"Tablets","k":"30 tablets"},{"id":95,"n":"STELLAR ACTIV-FOLATE TAB 30","p":139.99,"c":"Pregnancy and fertility","im":"img/products/95.jpg","d":"Stellar Activ-Folate","f":"Tablets","k":"30 tablets"},{"id":96,"n":"Sterimar Baby Nas 50ml","p":273.99,"c":"Baby and kids","im":"img/products/96.jpg","d":"Stérimar Baby","f":"Nasal spray","k":"50 ml"},{"id":97,"n":"REUTERINA 5 ML DRP 1S","p":314.99,"c":"Baby and kids","im":"img/products/97.jpg","d":"Reuterina","f":"Drops","k":"5 ml"},{"id":98,"n":"Vicks Baby Rub 50g","p":74.99,"c":"Baby and kids","im":"img/products/98.jpg","d":"Vicks Baby Rub","f":"Rub","k":"50 g"},{"id":99,"n":"Iliadin Baby 0.01% Nod 5ml","p":92.99,"c":"Baby and kids","im":"img/products/99.jpg","d":"Iliadin Baby 0.01%","f":"Nose drops","k":"5 ml"},{"id":100,"n":"Salex paed meter saline spray 30ml","p":127.99,"c":"Baby and kids","im":"img/products/100.jpg","d":"Salex Paediatric","f":"Metered saline spray","k":"30 ml"},{"id":101,"n":"TELAMENT PAED GRIPE WATER 150 ML SYR 1S","p":52.99,"c":"Baby and kids","im":"img/products/101.jpg","d":"Telament Paediatric Gripe Water","f":"Syrup","k":"150 ml"},{"id":102,"n":"TELAMENT 50 MG 1 ML 30 ML DRP 1S","p":164.99,"c":"Baby and kids","im":"img/products/102.jpg","d":"Telament","f":"Drops","k":"30 ml · 50 mg/ml"},{"id":103,"n":"Tibb Bonny Care Baby Syrup 200ml","p":145.99,"c":"Baby and kids","im":"img/products/103.jpg","w":189.99,"d":"Tibb Bonny Care Baby","f":"Syrup","k":"200 ml"},{"id":104,"n":"REUTERINA VITAMIN D3 10ML","p":443.99,"c":"Baby and kids","im":"img/products/104.jpg","d":"Reuterina Vitamin D3","f":"","k":"10 ml"},{"id":105,"n":"Otrivin Paediatric Nasal Drops 10ml","p":99.99,"c":"Baby and kids","im":"img/products/105.jpg","d":"Otrivin Paediatric","f":"Nose drops","k":"10 ml"},{"id":106,"n":"Clearblue Digital Pregnancy Test","p":157.99,"c":"Pregnancy and fertility","im":"img/products/106.jpg","d":"Clearblue Digital Pregnancy Test","f":"Test","k":"1 test"},{"id":107,"n":"Clearblue Digital Ovulation Test 10s","p":317.99,"c":"Pregnancy and fertility","im":"img/products/107.jpg","d":"Clearblue Digital Ovulation Test","f":"Test","k":"10 tests"},{"id":108,"n":"Preg Quick Test Midstream Single","p":13.99,"c":"Pregnancy and fertility","im":"img/products/108.jpg","d":"Preg Quick Midstream Test","f":"Test","k":"1 test"},{"id":109,"n":"U-Test Preg HCG Midstream Single 1","p":21.99,"c":"Pregnancy and fertility","im":"img/products/109.jpg","d":"U-Test hCG Midstream Pregnancy Test","f":"Test","k":"1 test"},{"id":110,"n":"Med-E-Enlarge cap 30","p":176.99,"c":"Sexual health and tests","im":"img/products/110.jpg","d":"Med-E-Enlarge","f":"Capsules","k":"30 capsules"},{"id":111,"n":"Kwik up Capsules 2","p":44.99,"c":"Sexual health and tests","im":"img/products/111.jpg","d":"Kwik-Up","f":"Capsules","k":"2 capsules"},{"id":112,"n":"Kwik-Up Super Capsule 1","p":22.99,"c":"Sexual health and tests","im":"img/products/112.jpg","d":"Kwik-Up Super","f":"Capsule","k":"1 capsule"},{"id":113,"n":"ERECTOGEN FORTE TAB 50S","p":464.99,"c":"Sexual health and tests","im":"img/products/113.jpg","d":"Erectogen Forte","f":"Tablets","k":"50 tablets"},{"id":114,"n":"KY Jelly 57g","p":109.99,"c":"Sexual health and tests","im":"","d":"K-Y Jelly","f":"Jelly","k":"57 g"},{"id":115,"n":"HIV TEST RAPID CASSETTE RIGHT SIGN HIVC42 TES 1S","p":34.99,"c":"Sexual health and tests","im":"img/products/115.jpg","d":"Right Sign HIV Rapid Test","f":"Test","k":"1 test"},{"id":116,"n":"HIV TEST IKNOW SINGLE iKnowHIVSingle TES 1S","p":30.99,"c":"Sexual health and tests","im":"img/products/116.jpg","d":"iKnow HIV Test","f":"Test","k":"1 test"},{"id":117,"n":"Slimz Vegan Collagen & CLA Cap 30","p":241.99,"c":"Vitamins and wellness","im":"img/products/117.jpg","w":314.99,"d":"Slimz Vegan Collagen & CLA","f":"Capsules","k":"30 capsules"},{"id":118,"n":"Wellvita VITAMIN K2 PLUS D3 CAPS 30S","p":164.99,"c":"Vitamins and wellness","im":"img/products/118.jpg","d":"Wellvita Vitamin K2 + D3","f":"Capsules","k":"30 capsules"},{"id":119,"n":"B-CAL-D TABS 60S","p":244.99,"c":"Vitamins and wellness","im":"img/products/119.jpg","d":"B-Cal-D","f":"Tablets","k":"60 tablets"},{"id":120,"n":"THE HARVEST TABLE COLLAGEN MULTI 450G","p":573.99,"c":"Vitamins and wellness","im":"img/products/120.jpg","d":"The Harvest Table Collagen Multi","f":"","k":"450 g"},{"id":121,"n":"BEROCCA TROPICAL EFT 20S","p":249.99,"c":"Vitamins and wellness","im":"img/products/121.jpg","d":"Berocca Tropical","f":"Effervescent tablets","k":"20 tablets"},{"id":122,"n":"Brunel Vitamin B CO Tab 100","p":65.99,"c":"Vitamins and wellness","im":"img/products/122.jpg","d":"Brunel Vitamin B Co","f":"Tablets","k":"100 tablets"},{"id":123,"n":"BIOSTRATH TAB 60S","p":215.99,"c":"Vitamins and wellness","im":"img/products/123.jpg","d":"Bio-Strath","f":"Tablets","k":"60 tablets"},{"id":124,"n":"B-Shot 25ml","p":30.99,"c":"Vitamins and wellness","im":"img/products/124.jpg","d":"B-Shot","f":"","k":"25 ml"},{"id":125,"n":"APITON 200 ML SYR 1S","p":166.99,"c":"Vitamins and wellness","im":"img/products/125.jpg","w":218.99,"d":"Apiton","f":"Syrup","k":"200 ml"},{"id":126,"n":"Ciplaton Capsules 30","p":131.99,"c":"Vitamins and wellness","im":"img/products/126.jpg","d":"Ciplaton","f":"Capsules","k":"30 capsules"},{"id":127,"n":"REVITAL ROYALE CAPS 30s","p":189.99,"c":"Vitamins and wellness","im":"img/products/127.jpg","d":"Revital Royale","f":"Capsules","k":"30 capsules"},{"id":128,"n":"Revital Ginseng Plus 30","p":174.99,"c":"Vitamins and wellness","im":"img/products/128.jpg","d":"Revital Ginseng Plus","f":"Capsules","k":"30 capsules"}];
+var cats=["All","Pain and fever","Cough, cold and flu","Stomach","Allergy and sinus","Vitamins and wellness","Skin and first aid","Devices and testing","Baby and kids","Pregnancy and fertility","Sexual health and tests"],cur="All",lim=12,cart={},view="cart";
+var DELIVERY_FEE=45,MIN_ORDER=100;
+var AREAS={"Johannesburg":["Bryanston","Craighall","Dainfern","Fourways","Hyde Park","Illovo","Johannesburg CBD","Lonehill","Melrose","Midrand","Morningside","Parktown","Randburg","Rivonia","Rosebank","Sandton","Sunninghill","Woodmead"],"Pretoria":["Brooklyn","Centurion","Constantia Park","Die Hoewes","Eldoraigne","Equestria","Faerie Glen","Garsfontein","Highveld","Irene","Lynnwood","Lyttelton","Menlyn","Mooikloof","Moreleta Park","Rooihuiskraal","Silver Lakes","Waterkloof","Wierda Park","Zwartkop"]};
+function openPriv(id){$("pvt").textContent=id=="pv-delivery"?"Delivery areas and fees":id=="pv-popia"?"POPIA notice":"Privacy and POPIA";if(!pv.open)pv.showModal();var el=$(id);if(el)pv.querySelector(".db").scrollTop=el.offsetTop-8}
+function sfi(n,l,o){o=o||{};return '<div class="sf"><input name="'+n+'" placeholder=" "'+(o.req===false?'':' required')+(o.v?' value="'+esc(o.v)+'"':'')+(o.t?' type="'+o.t+'"':'')+(o.ac?' autocomplete="'+o.ac+'"':'')+(o.ro?' readonly tabindex="-1"':'')+(o.im?' inputmode="'+o.im+'"':'')+(o.pat?' pattern="'+o.pat+'" title="'+o.ti+'"':'')+(o.ml?' maxlength="'+o.ml+'"':'')+'><label>'+l+(o.req===false?' (optional)':'')+'</label></div>'}
+function addrHTML(withName,u){
+  var nm=(u&&u.name||"").trim().split(/\s+/),fn=nm[0]||"",ln=nm.slice(1).join(" ");
+  var sub='<option value="">Select suburb</option>'+Object.keys(AREAS).map(function(c){return '<optgroup label="'+c+'">'+AREAS[c].map(function(x){return '<option>'+x+'</option>'}).join("")+'</optgroup>'}).join("");
+  return '<h4>Delivery</h4><div class="sf"><select name="co" disabled><option>South Africa</option></select><label>Country/Region</label></div>'
+   +(withName?'<div class="r2">'+sfi("fn","First name",{v:fn,ac:"given-name"})+sfi("ln","Last name",{v:ln,ac:"family-name"})+'</div>'+sfi("org","Company",{req:false,ac:"organization"}):'')
+   +sfi("a1","Address",{ac:"address-line1"})
+   +sfi("a2","Apartment, suite, etc.",{req:false,ac:"address-line2"})
+   +'<div class="sf"><select name="s" required onchange="setCity(this.form)" autocomplete="address-level3">'+sub+'</select><label>Suburb</label></div>'
+   +'<div class="r2">'+sfi("c","City",{ro:1,ac:"address-level2"})+sfi("pv","Province",{ro:1,v:"Gauteng"})+'</div>'
+   +sfi("z","Postal code",{ac:"postal-code",im:"numeric",pat:"\\d{4}",ti:"Enter a 4-digit postal code",ml:4})
+   +(withName?sfi("p","Phone",{t:"tel",v:(u&&u.phone)||"",ac:"tel"}):'')
+   +'<p class="err aer" role="alert"></p>'}
+function setCity(f){var s=f.elements.s.value,c="";for(var k in AREAS)if(AREAS[k].indexOf(s)>-1)c=k;f.elements.c.value=c;var l=f.elements.c.nextSibling;f.elements.c.dispatchEvent(new Event("input"))}
+function addrRead(f){var g=function(k){return f.elements[k]?f.elements[k].value.trim():""},c=g("c"),s=g("s"),z=g("z");
+  if(!AREAS[c]||AREAS[c].indexOf(s)<0)return{err:"We don’t deliver to that area yet. We deliver in selected areas of Johannesburg and Pretoria."};
+  if(!/^\d{4}$/.test(z))return{err:"Enter a 4-digit postal code."};
+  var d={address:g("a1"),apartment:g("a2"),suburb:s,city:c,province:"Gauteng",postal_code:z,country:"South Africa"};
+  return{d:d,addr:[d.address,d.apartment,s,c,"Gauteng",z].filter(Boolean).join(", ")}}
+function consent(){return '<label class="ck"><input type="checkbox" name="ok" required><span>I have read the <a href="#" onclick="openPriv(\'pv-privacy\');return false">Privacy Policy</a> and consent to GraceBridge processing my personal and health information to fulfil this order, as set out under POPIA.</span></label>'}
+var $=function(i){return document.getElementById(i)},bk=$("bk"),pv=$("pv");
+function R(n){return "R "+n.toFixed(2)}
+// ── Products ────────────────────────────────────────────────────────────────
+// p.d = display name, p.f = dosage form, p.k = pack (all taken from the stock name p.n,
+// which stays searchable and is shown on the product page as the pack label).
+function nm(p){return p.d||p.n}
+function meta(p){return [p.f,p.k].filter(Boolean).join(" · ")}
+function th(p,big){
+  if(p.im)return '<div class="'+(big?'pdi':'ph pic')+'"><img src="'+p.im+'" alt="'+esc(nm(p))+'"'+(big?'':' loading="lazy"')+' decoding="async"></div>';
+  return '<div class="'+(big?'pdi nf':'ph nf')+'"><svg class="i"><use href="#pill"/></svg>'+(big?'':'<span>'+esc(p.f||"Medication")+'</span>')+'</div>'}
+function save(p){return p.w&&p.w>p.p?Math.round((1-p.p/p.w)*100):0}
+function addCtl(p,fn){var q=cart[p.id]||0;
+  return q?'<div class="st2" role="group" aria-label="Quantity of '+esc(nm(p))+'"><button aria-label="Remove one" onclick="chg('+p.id+',-1)">−</button><span>'+q+'</span><button aria-label="Add one" onclick="chg('+p.id+',1)">+</button></div>'
+          :'<button class="qa" aria-label="Add '+esc(nm(p))+' to cart" onclick="add('+p.id+')">+</button>'}
+function card(p,i){var s=save(p);
+  return '<article class="p" style="--i:'+(i||0)+'">'+(s?'<span class="sv">Save '+s+'%</span>':'')+'<button class="pa" onclick="openP('+p.id+')" aria-label="View '+esc(nm(p))+'">'+th(p)+'<h3>'+esc(nm(p))+'</h3><div class="mt">'+esc(meta(p)||p.c)+'</div></button>'
+   +'<div class="pf"><div class="pr2">'+R(p.p)+(p.w?'<s>'+R(p.w)+'</s>':'')+'</div><div class="ad" data-id="'+p.id+'">'+addCtl(p)+'</div></div></article>'}
+function list(t,c,so){t=(t||"").toLowerCase().trim();
+  var l=P.filter(function(p){return(c=="All"||p.c==c)&&(!t||(nm(p)+" "+p.n+" "+(p.f||"")+" "+p.c).toLowerCase().indexOf(t)>-1)});
+  if(so=="lo")l=l.slice().sort(function(a,b){return a.p-b.p});else if(so=="hi")l=l.slice().sort(function(a,b){return b.p-a.p});else if(so=="az")l=l.slice().sort(function(a,b){return nm(a).localeCompare(nm(b))});
+  return l}
+function chips(c,on){return cats.map(function(x){var n=x=="All"?P.length:P.filter(function(p){return p.c==x}).length;return '<button class="cat" aria-pressed="'+(x==c)+'" aria-label="'+(x=="All"?"All products":x)+', '+n+'" onclick="'+on+'(\''+x.replace(/'/g,"\\'")+'\')">'+x+'<span class="ct" aria-hidden="true">'+n+'</span></button>'}).join("")}
+function grid(l,lm,moreFn){return l.length?l.slice(0,lm).map(card).join("")+(l.length>lm?'<div class="more"><button class="cat" onclick="'+moreFn+'">Show '+Math.min(12,l.length-lm)+' more</button></div>':''):'<div class="empty">No matches for that search. Try a brand, a form like “syrup”, or another category.</div>'}
+function go(id){$(id).scrollIntoView()}
+function find(id){return P.filter(function(p){return p.id==id})[0]}
+function count(){var c=0;for(var k in cart)c+=cart[k];return c}
+function total(){var t=0;for(var k in cart)t+=cart[k]*find(k).p;return t}
+function draw(){
+  var t=$("q").value,l=list(t,cur,$("so").value);
+  $("qx").hidden=!t;
+  $("cnt").textContent=l.length+(l.length==1?" product":" products")+(cur!="All"?" in "+cur:"");
+  $("grid").innerHTML=grid(l,lim,"lim+=12;draw()");
+  $("cats").innerHTML=chips(cur,"setCat");
+}
+function setCat(c){cur=c;lim=12;draw();var b=document.querySelector('#cats .cat[aria-pressed="true"]');if(b)b.scrollIntoView({block:"nearest",inline:"center"})}
+// Anyone can fill a cart; an account is only needed at checkout. The cart lives in memory
+// only (never in storage), because a medicine list is health information.
+function add(id,q){cart[id]=(cart[id]||0)+(q||1);sync();bump();var p=find(id);toastAct('Added <b>'+esc(nm(p))+'</b>',"View cart","openCart()")}
+function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<1)delete cart[id];sync()}
+function sync(){var c=count();[$("n"),$("n2")].forEach(function(b){if(b){b.textContent=c;b.hidden=!c}});
+  document.querySelectorAll(".ad[data-id]").forEach(function(el){var p=find(el.dataset.id);if(p)el.innerHTML=addCtl(p)});
+  if($("pd").open)pdAct();
+  if($("dr").classList.contains("on")&&view=="cart")drawer()}
+function bump(){document.querySelectorAll(".cart").forEach(function(c){c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump")})}
+function openCart(){if($("pd").open)closeP();if(bk.open)bk.close();$("ts").hidden=true;view="cart";drawer();$("dr").classList.add("on");$("ov").classList.add("on")}
+function checkout(){if(!me()){closeAll();openAuth("up","checkout","Create an account or log in to check out. Your cart is kept while you do.");return}view="form";drawer()}
+
+// ── Product page (a dialog; #p34 in the address bar, so Back closes it and links work) ──
+var PD=null,PQ=1,PDPUSH=false;
+// First product opened from the page: push a history entry (Back closes it). Moving between
+// products inside the sheet replaces it, so closing never walks back through every product.
+// Opened from a shared link: nothing to go back to, so closing just tidies the address.
+function openP(id,noPush){var p=find(id);if(!p)return;var was=$("pd").open;PD=p;PQ=1;renderP();
+  if(!was)$("pd").showModal();$("pdb").scrollTop=0;$("pdh").focus({preventScroll:true});
+  if(noPush)return;
+  if(was)history.replaceState({p:id},"","#p"+id);else{history.pushState({p:id},"","#p"+id);PDPUSH=true}}
+function closeP(){if(!$("pd").open)return;$("pd").close()}
+function renderP(){var p=PD,s=save(p),rel=P.filter(function(x){return x.c==p.c&&x.id!=p.id}).slice(0,8);
+  $("pdb").innerHTML='<div class="pdg">'+th(p,true)+'<div class="pdc">'
+   +'<button class="pdk" onclick="closeP();setCat(\''+p.c.replace(/'/g,"\\'")+'\');go(\'shop\')">'+esc(p.c)+'</button>'
+   +'<h2 id="pdh" tabindex="-1">'+esc(nm(p))+'</h2>'
+   +(meta(p)?'<div class="pdm">'+[p.f,p.k].filter(Boolean).map(function(x){return '<span>'+esc(x)+'</span>'}).join("")+'</div>':'')
+   +'<div class="pdp"><b>'+R(p.p)+'</b>'+(p.w?'<s>'+R(p.w)+'</s>':'')+(s?'<span class="sv">Save '+R(p.w-p.p)+'</span>':'')+'</div>'
+   +'<div class="pda" id="pda"></div><p class="pdin" id="pdin"></p>'
+   +'<ul class="pdas"><li><div class="ic"><svg class="i"><use href="#check"/></svg></div><div><b>Checked by a pharmacist</b><span>Every order is reviewed before it is dispatched.</span></div></li>'
+   +'<li><div class="ic"><svg class="i"><use href="#truck"/></svg></div><div><b>Delivered to your door, '+R(DELIVERY_FEE)+' flat</b><span>Selected areas of Johannesburg and Pretoria. Minimum order '+R(MIN_ORDER)+'. <a href="#" onclick="openPriv(\'pv-delivery\');return false" style="color:var(--ink)">Delivery areas</a></span></div></li>'
+   +'<li><div class="ic"><svg class="i"><use href="#lock"/></svg></div><div><b>Private and secure</b><span>Handled in line with POPIA.</span></div></li></ul>'
+   +'<div class="pdn"><b>Use as directed.</b> Always read the label and follow the directions for use. If you’re not sure this is right for you, book a consultation with one of our doctors. Prices are confirmed by our pharmacy partners.</div>'
+   +'<div class="pdl">Pack label: <code>'+esc(p.n)+'</code></div>'
+   +'</div></div>'
+   +(rel.length?'<div class="pdr"><h3>More in '+esc(p.c)+'</h3><div class="rl">'+rel.map(card).join("")+'</div></div>':'');
+  pdAct()}
+function pdAct(){var p=PD;if(!p)return;var q=cart[p.id]||0,
+  ctl='<div class="st2" role="group" aria-label="Quantity"><button aria-label="One less" onclick="PQ=Math.max(1,PQ-1);pdAct()">−</button><span>'+PQ+'</span><button aria-label="One more" onclick="PQ=Math.min(20,PQ+1);pdAct()">+</button></div>',
+  btn='<button class="btn" onclick="add('+p.id+',PQ);PQ=1;pdAct()">Add '+(PQ>1?PQ+' ':'')+'to cart · '+R(p.p*PQ)+'</button>';
+  $("pda").innerHTML=ctl+btn;
+  $("pdin").innerHTML=q?'You have <b style="color:var(--ink)">'+q+'</b> in your cart. <a href="#" onclick="openCart();return false" style="color:var(--ink)">View cart</a>':'';
+  $("pdbar").innerHTML=ctl+'<button class="btn" onclick="add('+p.id+',PQ);PQ=1;pdAct()">Add to cart · '+R(p.p*PQ)+'</button>'}
+$("pd").addEventListener("close",function(){PD=null;if(!/^#p\d+$/.test(location.hash))return;
+  if(PDPUSH){PDPUSH=false;history.back()}else history.replaceState(null,"",location.pathname+location.search)});
+$("pd").addEventListener("click",function(e){if(e.target===$("pd"))closeP()});
+window.addEventListener("popstate",function(){var m=location.hash.match(/^#p(\d+)$/);if(m)openP(+m[1],true);else if($("pd").open){PDPUSH=false;PD=null;$("pd").close()}});
+function toastAct(html,label,act){var t=$("ts");t.innerHTML='<span>'+html+'</span><button type="button" onclick="'+act+';$(\'ts\').hidden=true">'+label+'</button>';t.hidden=false;clearTimeout(window.tt);window.tt=setTimeout(function(){t.hidden=true},4200)}
+function closeAll(){$("dr").classList.remove("on");$("ov").classList.remove("on")}
+function drawer(){
+  var b=$("dbody"),f=$("dfoot"),dt=$("dt");
+  if(view=="cart"){
+    dt.textContent="Your cart";
+    if(!count()){b.innerHTML='<p style="color:var(--muted)">Your cart is empty. Add medication from the list.</p>';f.innerHTML='<button class="btn full" onclick="closeAll();go(\'shop\')">Browse medication</button>';return}
+    b.innerHTML=Object.keys(cart).map(function(k){var p=find(k);return '<div class="li">'+th(p)+'<div class="m">'+esc(nm(p))+'<small>'+esc(meta(p))+(meta(p)?' · ':'')+R(p.p)+'</small></div><div class="q"><button aria-label="Remove one" onclick="chg('+k+',-1)">−</button><span>'+cart[k]+'</span><button aria-label="Add one" onclick="chg('+k+',1)">+</button></div></div>'}).join("");
+    var st=total(),low=st<MIN_ORDER;f.innerHTML='<div class="tot sm"><span>Subtotal</span><span>'+R(st)+'</span></div><div class="tot sm"><span>Delivery fee</span><span>'+R(DELIVERY_FEE)+'</span></div><div class="tot"><span>Total</span><span>'+R(st+DELIVERY_FEE)+'</span></div>'+(low?'<p class="err" role="alert" style="margin:4px 0 10px">Minimum medication order is '+R(MIN_ORDER)+'. Add '+R(MIN_ORDER-st)+' more to checkout.</p>':'<p class="fn">Flat delivery fee in our Johannesburg and Pretoria delivery areas. Final prices are confirmed by the pharmacy.</p>')+'<button class="btn full"'+(low?' disabled':'')+' onclick="checkout()">'+(me()?'Checkout':'Log in to check out')+'</button>';
+  }else if(view=="form"){
+    dt.textContent="Delivery details";
+    var u=me()||{name:"",phone:""};
+    b.innerHTML='<form class="f" id="ck" onsubmit="return placeOrder(event)">'+addrHTML(true,u)+'<div class="sum"><div><span>Subtotal</span><span>'+R(total())+'</span></div><div><span>Delivery fee</span><span>'+R(DELIVERY_FEE)+'</span></div><div class="tt"><span>Total</span><span>'+R(total()+DELIVERY_FEE)+'</span></div></div>'+consent()+'<button class="btn full">Pay '+R(total()+DELIVERY_FEE)+'</button></form><p class="fn" style="margin-top:12px">You’ll be taken to our payment provider’s secure page to pay. A pharmacist checks every order before it is dispatched.</p>';
+    f.innerHTML='<button class="btn o" style="color:var(--ink);border-color:var(--line);width:100%" onclick="view=\'cart\';drawer()">Back to cart</button>';
+  }else{
+    dt.textContent="Payment received";
+    b.innerHTML='<div class="ok">Thank you. Your payment is received.<p>A pharmacist will check availability and your order will be dispatched. You can follow it under My orders.</p></div>';
+    f.innerHTML='<button class="btn full" onclick="closeAll()">Done</button>';
+  }
+}
+function fd(){return new Date().toLocaleDateString("en-ZA",{day:"numeric",month:"short",year:"numeric"})}
+function ferr(r){
+  if(r.data&&r.data.error)return Promise.resolve(r.data.error);
+  if(r.error&&r.error.context&&typeof r.error.context.json=="function")return r.error.context.json().then(function(j){return j.error||j.message||r.error.message}).catch(function(){return r.error.message});
+  return Promise.resolve(r.error?r.error.message:"")}
+function placeOrder(e){e.preventDefault();var f=e.target,btn=f.querySelector("button.btn"),lab=btn.textContent,items=Object.keys(cart).map(function(k){return{id:+k,qty:cart[k]}}),er=f.querySelector(".aer");
+  if(total()<MIN_ORDER){er.textContent="Minimum medication order is "+R(MIN_ORDER)+".";return false}
+  var a=addrRead(f);if(a.err){er.textContent=a.err;return false}er.textContent="";
+  var g=function(k){return f.elements[k].value.trim()};
+  btn.disabled=true;btn.textContent="Please wait…";
+  sb.functions.invoke("checkout",{body:{items:items,address:a.addr,address_details:a.d,contact:{first_name:g("fn"),last_name:g("ln"),company:g("org"),phone:g("p")},delivery_fee_cents:DELIVERY_FEE*100,consent:true}}).then(function(r){
+    if(r.error||!r.data||r.data.error){return ferr(r).then(function(m){btn.disabled=false;btn.textContent=lab;toast("Checkout failed: "+(m||"unknown error"))})}
+    if(safe(r.data.pay_url)=="#"){btn.disabled=false;btn.textContent=lab;toast("Checkout failed: no payment link was returned. Please try again.");return}
+    cart={};sync();location.assign(r.data.pay_url)});
+  return false}
+function openBook(){if(!me()){openAuth("up","consult","Create an account to book your consultation.");return}openApp("consult")}
+var SBURL="https://eowttngvvcjqouedklrs.supabase.co",SBKEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvd3R0bmd2dmNqcW91ZWRrbHJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzNTkzODIsImV4cCI6MjEwODkzNTM4Mn0.R-2iYMSBI6D4OGmXTWcQEm5khi1RUDIyn8v73vf-R2s";
+// Read auth redirect info (password reset, email confirmation, expired links) before supabase-js clears the URL hash.
+var AH=new URLSearchParams(location.hash.slice(1)),RECOVERY=AH.get("type")=="recovery",CONFIRMED=AH.get("type")=="signup",AUTHERR=AH.get("error_description");
+var BACK=location.origin+location.pathname;
+var sb=window.supabase.createClient(SBURL,SBKEY);
+var S={user:null,me:null,c:[],r:[],o:[]},AN=null,pend=null,rt=null;
+function me(){return S.me}
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function safe(u){return /^https?:\/\//i.test(String(u||""))?u:"#"}
+function hdr(){var u=me();$("auth").textContent=u?"Hi, "+u.name.split(" ")[0]:"Log in"}
+function authBtn(){me()?openApp("home"):openAuth("in")}
+function openAuth(mode,next,msg,pre){
+  AN=next||null;var up=mode=="up";
+  $("bt").textContent=up?"Create your account":"Log in";
+  $("bkb").innerHTML=(msg?'<p class="fn">'+msg+'</p>':'')+'<div class="cats" style="margin-bottom:14px"><button class="cat" aria-pressed="'+!up+'" onclick="openAuth(\'in\',AN)">Log in</button><button class="cat" aria-pressed="'+up+'" onclick="openAuth(\'up\',AN)">Sign up</button></div><form class="f" onsubmit="return '+(up?'doUp':'doIn')+'(event)">'+(up?'<label>Full name<input name="n" required autocomplete="name"></label><label>Phone number<input name="p" type="tel" required autocomplete="tel"></label>':'')+'<label>Email<input name="e" type="email" required autocomplete="email" value="'+esc(pre||"")+'"></label><label>Password'+(up?' (at least 8 characters)':'')+'<input name="w" type="password" required minlength="'+(up?8:1)+'" autocomplete="'+(up?'new-password':'current-password')+'"></label><p class="err" id="er" role="alert"></p>'+(up?'':'<button type="button" class="lnk" onclick="openForgot(this.form.e.value)">Forgot your password?</button>')+(up?'<p class="fn">By creating an account you agree to our <a href="#" onclick="openPriv(\'pv-privacy\');return false" style="color:var(--ink)">Privacy Policy</a> and POPIA notice.</p>':'')+'<button class="btn full">'+(up?'Create account':'Log in')+'</button></form>';
+  if(!bk.open)bk.showModal();
+}
+function fin(){hdr();if(AN=="checkout"){if(bk.open)bk.close();view=count()?"form":"cart";drawer();$("dr").classList.add("on");$("ov").classList.add("on");return}if(AN=="rx"){openRx();return}if(AN=="shop"){if(pend){cart[pend]=(cart[pend]||0)+1;pend=null;sync()}openApp("shop");toast("Added to your cart");return}openApp(AN=="consult"?"consult":"home")}
+function busy(f,on,txt){var b=f.querySelector("button.btn");if(!b)return;if(on){b.dataset.l=b.textContent;b.textContent=txt||"Please wait…"}else if(b.dataset.l)b.textContent=b.dataset.l;b.disabled=on}
+function openForgot(pre){
+  $("bt").textContent="Reset your password";
+  $("bkb").innerHTML='<p class="fn">Enter the email you signed up with and we’ll send you a link to set a new password.</p><form class="f" onsubmit="return doForgot(event)"><label>Email<input name="e" type="email" required autocomplete="email" value="'+esc(pre||"")+'"></label><p class="err" id="er" role="alert"></p><button class="btn full">Send reset link</button><button type="button" class="lnk" onclick="openAuth(\'in\',AN)">Back to log in</button></form>';
+  if(!bk.open)bk.showModal();
+}
+function doForgot(e){e.preventDefault();var f=e.target,er=$("er"),em=f.e.value.trim().toLowerCase();busy(f,true,"Sending…");
+  sb.auth.resetPasswordForEmail(em,{redirectTo:BACK}).then(function(r){
+    if(r.error){busy(f,false);er.textContent=r.error.message;return}
+    openAuth("in",AN,"If an account exists for "+esc(em)+", we’ve emailed you a link to set a new password.",em)});
+  return false}
+function openNewPw(){
+  $("bt").textContent="Set a new password";
+  $("bkb").innerHTML='<form class="f" onsubmit="return doNewPw(event)"><label>New password (at least 8 characters)<input name="w" type="password" required minlength="8" autocomplete="new-password"></label><label>Confirm new password<input name="w2" type="password" required minlength="8" autocomplete="new-password"></label><p class="err" id="er" role="alert"></p><button class="btn full">Save new password</button></form>';
+  if(!bk.open)bk.showModal();
+}
+function doNewPw(e){e.preventDefault();var f=e.target,er=$("er");
+  if(f.w.value!==f.w2.value){er.textContent="The passwords don’t match.";return false}
+  busy(f,true,"Saving…");
+  sb.auth.updateUser({password:f.w.value}).then(function(r){
+    if(r.error){busy(f,false);er.textContent=r.error.message;return}
+    RECOVERY=false;bk.close();toast("Your password has been updated.");if(!S.user)onUser(r.data.user)});
+  return false}
+function doUp(e){e.preventDefault();var f=e.target,er=$("er"),em=f.e.value.trim().toLowerCase();busy(f,true,"Creating account…");
+  sb.auth.signUp({email:em,password:f.w.value,options:{emailRedirectTo:BACK,data:{full_name:f.n.value.trim(),phone:f.p.value.trim()}}}).then(function(r){
+    if(r.error){busy(f,false);er.textContent=r.error.message;return}
+    if(r.data.session){return sb.auth.signOut().then(function(){openAuth("in",AN,"Account created. Log in to continue.",em)})}
+    openAuth("in",AN,"Account created. Check your email to confirm it, then log in.",em)});
+  return false}
+function doIn(e){e.preventDefault();var f=e.target,er=$("er");busy(f,true,"Logging in…");
+  sb.auth.signInWithPassword({email:f.e.value.trim().toLowerCase(),password:f.w.value}).then(function(r){
+    if(r.error){busy(f,false);er.textContent=/not confirmed/i.test(r.error.message)?"Please confirm your email first. Check your inbox for the link we sent.":r.error.message;return}
+    return onUser(r.data.user).then(fin)});
+  return false}
+function logout(){sb.auth.signOut().then(function(){cart={};sync();hdr();closeApp();if(bk.open)bk.close()})}
+function load(){var u=S.user;if(!u)return Promise.resolve();
+  var q=function(t){return sb.from(t).select("*").eq("patient_id",u.id).order("created_at",{ascending:false})};
+  return Promise.all([sb.from("profiles").select("full_name,phone").eq("id",u.id).maybeSingle(),q("consultations"),q("prescriptions"),q("orders")]).then(function(a){
+    var p=a[0].data||{},m=u.user_metadata||{};
+    S.me={id:u.id,email:u.email,name:p.full_name||m.full_name||u.email,phone:p.phone||m.phone||""};
+    S.c=a[1].data||[];S.r=a[2].data||[];S.o=a[3].data||[];
+    hdr();if(!$("app").hidden)rApp();tick()})}
+function onUser(u){S.user=u||null;if(rt){sb.removeChannel(rt);rt=null}
+  if(!u){S.me=null;S.c=[];S.r=[];S.o=[];hdr();return Promise.resolve()}
+  return load().then(function(){rt=sb.channel("mine-"+u.id);
+    ["consultations","prescriptions","orders"].forEach(function(t){rt.on("postgres_changes",{event:"*",schema:"public",table:t,filter:"patient_id=eq."+u.id},load)});rt.subscribe()})}
+function boot(){
+  if(AUTHERR){toast(/expired|invalid/i.test(AUTHERR)?"That link has expired or was already used. Please request a new one.":AUTHERR);history.replaceState(null,"",location.pathname+location.search)}
+  sb.auth.getSession().then(function(r){return onUser(r.data.session&&r.data.session.user)}).then(function(){
+    if(RECOVERY)openNewPw();else if(CONFIRMED&&me())toast("Your email is confirmed. You’re logged in.")});
+  sb.auth.onAuthStateChange(function(ev){if(ev=="PASSWORD_RECOVERY"){RECOVERY=true;setTimeout(openNewPw,0)}if(ev=="SIGNED_OUT"){S.user=null;S.me=null;S.c=[];S.r=[];S.o=[];hdr();closeApp()}});
+  sb.from("products").select("id,price_cents,was_cents").then(function(r){if(r.data&&r.data.length){r.data.forEach(function(x){var p=find(x.id);if(p){p.p=x.price_cents/100;p.w=x.was_cents?x.was_cents/100:0}});draw()}});
+}
+function openRx(){
+  if(!me()){openAuth("up","rx","Create an account to upload your prescription.");return}
+  $("bt").textContent="Upload your prescription";
+  $("bkb").innerHTML='<p class="fn">A pharmacist reviews your prescription before anything is dispatched.</p><form class="f" onsubmit="return rx(event)"><label>Prescription (photo or PDF)<input name="f" type="file" accept="image/*,.pdf" required></label>'+addrHTML(false,me())+'<label>Notes for the pharmacist (optional)<textarea name="m" placeholder="Anything we should know"></textarea></label>'+consent()+'<button class="btn full">Send prescription</button></form><p class="fn" style="margin-top:12px"><a href="#" onclick="bk.close();openApp(\'rx\');return false" style="color:var(--ink)">View my prescriptions</a></p>';
+  if(!bk.open)bk.showModal();
+}
+function rx(e){e.preventDefault();var u=me(),f=e.target,file=f.f.files[0],btn=f.querySelector("button");if(!file)return false;
+  var ad=addrRead(f),er=f.querySelector(".aer");if(ad.err){er.textContent=ad.err;return false}er.textContent="";
+  btn.disabled=true;btn.textContent="Uploading…";
+  var path=u.id+"/"+Date.now()+"-"+file.name.replace(/[^\w.\-]+/g,"_");
+  sb.storage.from("prescriptions").upload(path,file).then(function(r){if(r.error)throw r.error;
+    return sb.from("prescriptions").insert({patient_id:u.id,file_path:path,address:ad.addr,notes:f.m.value.trim()||null}).select().single()})
+  .then(function(r){if(r.error)throw r.error;var due=new Date(r.data.due_at).getTime();
+    $("bkb").innerHTML='<div class="ok">Prescription received.<p>Your pharmacist is reviewing it. You can pay once it’s approved.</p><div class="cdw">Estimated review time left <b class="cd" data-end="'+due+'">30:00</b></div></div><button class="btn full" style="margin-top:14px" onclick="bk.close();openApp(\'rx\')">View my prescriptions</button>';tick();load()})
+  .catch(function(err){btn.disabled=false;btn.textContent="Send prescription";toast(err.message||"Upload failed. Please try again.")});
+  return false}
+function tick(){var n=Date.now();document.querySelectorAll(".cd").forEach(function(el){var d=+el.getAttribute("data-end")-n;if(d<=0){el.textContent="Taking a little longer. We’ll notify you."}else{var m=Math.floor(d/60000),sc=Math.floor(d%60000/1000);el.textContent=(m<10?"0":"")+m+":"+(sc<10?"0":"")+sc}})}
+setInterval(tick,1000);
+function cardRx(x){var st=x.status,nm=x.file_path.split("/").pop().replace(/^\d+-/,""),h='<div class="rxi"><b>'+esc(nm)+'</b><small style="display:block;color:var(--muted)">'+new Date(x.created_at).toLocaleDateString("en-ZA",{day:"numeric",month:"short",year:"numeric"})+'</small>'+(x.notes?'<small style="display:block;margin-top:4px">'+esc(x.notes)+'</small>':'');
+  if(st=="reviewing")h+='<p style="margin:10px 0 4px">Your pharmacist is reviewing your prescription. You can pay once it’s approved.</p><div class="cdw">Estimated review time left <b class="cd" data-end="'+new Date(x.due_at).getTime()+'">30:00</b></div>';
+  else if(st=="approved")h+='<p style="margin:10px 0">Approved by your pharmacist. Pay '+R(x.amount_cents/100)+' to have your medication delivered.</p><a class="btn sm" href="'+esc(safe(x.pay_url))+'">Pay '+R(x.amount_cents/100)+'</a>';
+  else if(st=="rejected")h+='<p style="margin:10px 0">Your pharmacist couldn’t fill this prescription.'+(x.reject_reason?' '+esc(x.reject_reason):'')+'</p>';
+  else h+='<p style="margin:10px 0">Paid. Your medication is being prepared for delivery.</p>';
+  return h+'</div>'}
+var tabC="home",alim=12,acur="All";
+var TABS=[["home","Overview"],["consult","Consultations"],["shop","Order medication"],["rx","Prescriptions"],["orders","My orders"]];
+function toast(m){var t=$("ts");t.textContent=m;t.hidden=false;clearTimeout(window.tt);window.tt=setTimeout(function(){t.hidden=true},4200)}
+function openApp(t){var u=me();if(!u){openAuth("in");return}if(bk.open)bk.close();tabC=t||"home";$("app").hidden=false;document.body.style.overflow="hidden";rApp()}
+function closeApp(){$("app").hidden=true;document.body.style.overflow=""}
+function rApp(){var u=me();if(!u){closeApp();return}
+  $("app").innerHTML='<div class="ab"><div class="w abi"><a class="logo" href="#" onclick="closeApp();return false"><span class="mk">G</span>GraceBridge</a><button class="cart" aria-label="Cart" onclick="openCart()"><svg class="i"><use href="#bag"/></svg><b id="n2">'+count()+'</b></button><button class="btn sm" onclick="logout()">Log out</button></div><div class="w tabs">'+TABS.map(function(t){return '<button class="cat" aria-pressed="'+(t[0]==tabC)+'" onclick="tabC=\''+t[0]+'\';rApp()">'+t[1]+'</button>'}).join("")+'</div></div><div class="w apc" id="apc"></div>';
+  ({home:aHome,consult:aConsult,shop:aShop,rx:aRx,orders:aOrders})[tabC](u);$("app").scrollTop=0}
+function cardC(c){
+  var steps=["Requested","Doctor accepted","Consultation","Payment"],i={requested:0,accepted:1,completed:2,paid:3,declined:0}[c.status],txt,act="";
+  if(c.status=="requested")txt="Waiting for a doctor to accept your request.";
+  else if(c.status=="declined")txt="A doctor couldn’t take this request. You haven’t been charged. Please request another time.";
+  else if(c.status=="accepted"){txt="A doctor accepted your request. Join your consultation with the button below. You pay after it ends.";act='<a class="btn sm" href="'+esc(safe(c.room_url))+'" target="_blank" rel="noopener">Join consultation</a>'}
+  else if(c.status=="completed"){txt="Your consultation is complete. Please pay the consultation fee.";act='<a class="btn sm" href="'+esc(safe(c.pay_url))+'">Pay '+R(c.fee_cents/100)+'</a>'}
+  else txt="Paid. Thank you. Any prescription from your doctor will appear under Prescriptions.";
+  return '<div class="rxi"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><b>Consultation · '+R(c.fee_cents/100)+'</b><small style="color:var(--muted)">'+esc(new Date(c.preferred_at).toLocaleString("en-ZA",{dateStyle:"medium",timeStyle:"short"}))+'</small></div><small style="display:block;margin:4px 0 10px;color:var(--muted)">'+esc(c.reason)+'</small><div class="stp">'+steps.map(function(x,k){return '<span class="'+(k<=i&&c.status!="declined"?"on":"")+'">'+x+'</span>'}).join("")+'</div><p style="margin:10px 0">'+txt+'</p>'+act+'</div>'}
+function localNow(){var d=new Date();d.setSeconds(0,0);return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,16)}
+function reqC(e){e.preventDefault();var u=me(),f=e.target,when=new Date(f.t.value);
+  if(isNaN(when)||when.getTime()<Date.now()-5*6e4){toast("Please choose a date and time in the future.");return false}
+  busy(f,true,"Sending…");
+  sb.from("consultations").insert({patient_id:u.id,reason:f.r.value.trim(),preferred_at:when.toISOString()}).then(function(r){
+    if(r.error){busy(f,false);toast(r.error.message);return}toast("Request sent. A doctor will review it.");load()});
+  return false}
+function aHome(u){
+  var last=S.c[0];
+  $("apc").innerHTML='<h2 style="text-align:left">Hi, '+esc(u.name.split(" ")[0])+'</h2><p class="sub">What would you like to do today?</p><div class="ways"><div class="way"><div class="ic"><svg class="i"><use href="#phone"/></svg></div><h3>See a doctor</h3><p>Request an online consultation. You pay only after it’s done.</p><button class="btn" onclick="tabC=\'consult\';rApp()">Book a consultation</button></div><div class="way"><div class="ic"><svg class="i"><use href="#bag"/></svg></div><h3>Order medication</h3><p>Choose your medication and have it delivered.</p><button class="btn" onclick="tabC=\'shop\';rApp()">Order medication</button></div><div class="way"><div class="ic"><svg class="i"><use href="#cross"/></svg></div><h3>Upload a prescription</h3><p>Send a prescription for a pharmacist to review.</p><button class="btn" onclick="openRx()">Upload prescription</button></div></div>'+(last?'<h3 style="margin:34px 0 12px">Latest consultation</h3>'+cardC(last):'');
+}
+function aConsult(u){
+  $("apc").innerHTML='<h2 style="text-align:left">Consultations</h2><p class="sub">Request a consultation. Once a doctor accepts, your link appears here and is sent to you. You pay R 500.00 after the consultation.</p><form class="f" style="max-width:520px" onsubmit="return reqC(event)"><label>What do you need help with?<textarea name="r" required placeholder="Briefly describe your symptoms or what you need"></textarea></label><label>Preferred date and time<input name="t" type="datetime-local" required min="'+localNow()+'"></label><button class="btn">Request consultation</button></form><h3 style="margin:34px 0 12px">My consultations</h3>'+(S.c.length?S.c.map(cardC).join(""):'<p class="fn">No consultations yet.</p>')+'<p class="fn">For emergencies, call 10177 or go to your nearest emergency room.</p>';
+}
+function aShop(){
+  $("apc").innerHTML='<h2 style="text-align:left">Order medication</h2><p class="sub">Choose your medication and have it delivered to your door.</p><div class="sb"><svg class="i"><use href="#pill"/></svg><input id="aq" type="search" enterkeyhint="search" placeholder="Search by name, brand or form" aria-label="Search medication" oninput="alim=12;adraw()"></div><div class="cats" id="ac"></div><div class="tb"><span id="acnt" aria-live="polite"></span><select id="aso" aria-label="Sort products" onchange="alim=12;adraw()"><option value="">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="az">Name: A–Z</option></select></div><div class="grid" id="ag"></div><p class="note">Prescription medication requires a valid prescription or a GraceBridge consultation. A pharmacist reviews every order. Minimum order R100, flat delivery fee R45 in our Johannesburg and Pretoria delivery areas.</p>';adraw();
+}
+function adraw(){
+  var l=list($("aq").value,acur,$("aso").value);
+  $("acnt").textContent=l.length+(l.length==1?" product":" products");
+  $("ag").innerHTML=grid(l,alim,"alim+=12;adraw()");
+  $("ac").innerHTML=chips(acur,"setACat");
+}
+function setACat(c){acur=c;alim=12;adraw()}
+function aRx(u){
+  $("apc").innerHTML='<h2 style="text-align:left">Prescriptions</h2><p class="sub">Upload a prescription. Your pharmacist reviews it, usually within 30 minutes, and then you can pay.</p><button class="btn" onclick="openRx()">Upload a prescription</button><h3 style="margin:30px 0 12px">My prescriptions</h3>'+(S.r.length?S.r.map(cardRx).join(""):'<p class="fn">No prescriptions yet.</p>');tick();
+}
+var OL={pending_payment:"Awaiting payment",paid:"Paid, being prepared",dispatched:"Dispatched",cancelled:"Cancelled"};
+function aOrders(u){
+  $("apc").innerHTML='<h2 style="text-align:left">My orders</h2><p class="sub">Orders you place appear here.</p>'+(S.o.length?S.o.map(function(o){return '<div class="rxi"><div style="display:flex;justify-content:space-between;gap:10px"><b>'+esc(new Date(o.created_at).toLocaleDateString("en-ZA",{day:"numeric",month:"short",year:"numeric"}))+'</b><b>'+R(o.total_cents/100)+'</b></div><small style="display:block;color:var(--muted);margin:4px 0">'+esc(OL[o.status]||o.status)+'</small><small>'+(o.items||[]).map(function(i){return esc((i.qty||1)+" × "+i.name)}).join("<br>")+'</small>'+(o.status=="pending_payment"&&o.pay_url?'<div style="margin-top:10px"><a class="btn sm" href="'+esc(safe(o.pay_url))+'">Pay now</a></div>':'')+'</div>'}).join(""):'<p class="fn">No orders yet.</p><button class="btn" onclick="tabC=\'shop\';rApp()">Order medication</button>');
+}
+$("q").addEventListener("input",function(){lim=12;draw()});
+document.addEventListener("keydown",function(e){if(e.key=="Escape"&&$("dr").classList.contains("on"))closeAll()});
+draw();hdr();sync();boot();
+// A shared product link (#p34) opens that product once the page is ready.
+(function(){var m=location.hash.match(/^#p(\d+)$/);if(m&&find(+m[1]))setTimeout(function(){openP(+m[1],true)},0)})();
+// Sections ease in as they reach the screen (not the hero). Without IntersectionObserver,
+// or with reduced motion, everything is simply shown.
+(function(){var els=document.querySelectorAll("section h2,section .sub,.s3 .ey,.wy>.wc,.cx .lead,.cxs>li,.cc2,.tru>div,.hw>li,#faq details");
+  if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");io.unobserve(t);
+    // Once it has arrived, drop the entrance stagger so hover and taps respond at once.
+    setTimeout(function(){t.style.transitionDelay="";t.classList.add("done")},1300)}})},{rootMargin:"0px 0px -8% 0px",threshold:.08});
+  els.forEach(function(el,i){el.classList.add("rv");el.style.transitionDelay=(el.matches(".wc,.cxs>li,.tru>div,.hw>li")?Array.prototype.indexOf.call(el.parentNode.children,el)*90:0)+"ms";io.observe(el)})})();
+</script>
+</body>
+</html>

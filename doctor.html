@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GraceBridge – Doctor dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d8232b'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='%23fff' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="staff.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+</head><body>
+<div id="app"></div>
+<script>
+const CONFIG={SUPABASE_URL:"https://eowttngvvcjqouedklrs.supabase.co",SUPABASE_ANON_KEY:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvd3R0bmd2dmNqcW91ZWRrbHJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzNTkzODIsImV4cCI6MjEwODkzNTM4Mn0.R-2iYMSBI6D4OGmXTWcQEm5khi1RUDIyn8v73vf-R2s"};
+const sb=supabase.createClient(CONFIG.SUPABASE_URL,CONFIG.SUPABASE_ANON_KEY);
+const $=id=>document.getElementById(id);
+// Escapes for HTML text AND attribute values (including single quotes).
+const esc=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safe=u=>/^https:\/\//i.test(String(u||""))?u:"";
+let me=null;
+
+function loginView(msg){
+  $("app").innerHTML=`<form class="login" onsubmit="return signIn(event)"><h2 style="margin:0">Doctor login</h2>
+  <input name="e" type="email" placeholder="Email" required autocomplete="email"><input name="p" type="password" placeholder="Password" required autocomplete="current-password">
+  <button>Log in</button><small>${esc(msg||"")}</small></form>`;
+}
+async function signIn(e){e.preventDefault();const f=e.target,b=f.querySelector("button");b.disabled=true;b.textContent="Logging in…";
+  const {error}=await sb.auth.signInWithPassword({email:f.e.value.trim(),password:f.p.value});
+  if(error){loginView(error.message);return false}
+  boot();return false}
+async function signOut(){sb.removeAllChannels();await sb.auth.signOut();loginView()}
+
+async function boot(){
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session){loginView();return}
+  const {data:role}=await sb.from("staff_roles").select("role,display_name").eq("user_id",session.user.id).maybeSingle();
+  if(!role||!["doctor","admin"].includes(role.role)){await sb.auth.signOut();loginView("This account is not a doctor account.");return}
+  me={id:session.user.id,name:role.display_name||session.user.email};
+  $("app").innerHTML=`<header><b>GraceBridge · Doctor</b><span>${esc(me.name)}</span><button class="o" onclick="signOut()" style="color:#fff;border-color:#4b628f">Log out</button></header><main id="main"></main>`;
+  load();
+  sb.removeAllChannels();
+  sb.channel("consults").on("postgres_changes",{event:"*",schema:"public",table:"consultations"},load).subscribe();
+}
+
+async function load(){
+  const {data,error}=await sb.from("consultations").select("*, profiles(full_name,phone)").in("status",["requested","accepted","completed"]).order("created_at",{ascending:true});
+  if(!$("main"))return;
+  if(error){$("main").innerHTML=`<p class="empty">${esc(error.message)}</p>`;return}
+  const g=s=>data.filter(c=>c.status===s);
+  $("main").innerHTML=
+    `<h2>New requests</h2>${g("requested").map(card).join("")||'<p class="empty">No new requests.</p>'}`+
+    `<h2>In progress</h2>${g("accepted").map(card).join("")||'<p class="empty">Nothing in progress.</p>'}`+
+    `<h2>Waiting for payment</h2>${g("completed").map(card).join("")||'<p class="empty">None.</p>'}`;
+}
+// Record values go into escaped data-* attributes, never into inline JS strings.
+function card(c){
+  const p=c.profiles||{},id=esc(c.id);let a="";
+  if(c.status==="requested")a=`<button data-id="${id}" onclick="act(this,'accept-consultation',{decision:'accept'})">Accept</button><button class="o" data-id="${id}" onclick="if(confirm('Decline this request?'))act(this,'accept-consultation',{decision:'decline'})">Decline</button>`;
+  if(c.status==="accepted"){const mine=c.doctor_id===me.id,room=safe(c.room_url);
+    // Only the assigned doctor gets the patient's video room link.
+    a=mine?(room?`<a class="btn" href="${esc(room)}" target="_blank" rel="noopener">Open video room</a>`:'<small>No video room link yet.</small>')+`<button class="o" data-id="${id}" onclick="if(confirm('End consultation and send the R500 payment request?'))act(this,'complete-consultation',{})">Mark complete and request payment</button>`:'<small>With another doctor</small>'}
+  if(c.status==="completed")a='<small>Payment link sent to the patient.</small>';
+  return `<div class="card"><div class="row"><b>${esc(p.full_name||"Patient")}</b><small>${esc(new Date(c.preferred_at).toLocaleString("en-ZA"))}</small></div>
+  <small>${esc(p.phone||"")}</small><p style="margin:8px 0 0">${esc(c.reason)}</p><div class="acts">${a}</div></div>`;
+}
+async function act(btn,fn,body){
+  btn.closest(".acts").querySelectorAll("button").forEach(b=>b.disabled=true);
+  const {data,error}=await sb.functions.invoke(fn,{body:{...body,id:btn.dataset.id}});
+  if(error||(data&&data.error)){let m=data&&data.error;if(!m&&error.context&&error.context.json){try{m=(await error.context.json()).error}catch(_){}}alert(m||error.message)}
+  load();
+}
+boot();
+</script></body></html>
