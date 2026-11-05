@@ -561,6 +561,22 @@ details[open] summary::after{transform:rotate(45deg)}
 @media(prefers-reduced-motion:reduce){.vdot{animation:none}}
 @media(hover:hover){.js .wc.rv.done{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}.js .wc.rv.done:hover{transform:translateY(-4px)}}
 
+/* iOS Safari: vh is measured as if the bottom toolbar were hidden, so full-height panels
+   ran under the toolbar (the product page's Add to cart bar was cut off on an iPhone 13).
+   dvh follows what is actually visible. Panels are anchored to the top and sized in dvh,
+   so their bottom edge sits exactly at the visible bottom; vh stays as the fallback. */
+@supports (height:100dvh){
+  .dr{bottom:auto;height:100dvh}
+  #app{bottom:auto;height:100dvh}
+  #pv[open]{max-height:88dvh}
+  #pd{max-height:min(92dvh,900px)}
+  .pdi{max-height:46dvh}
+  @media(max-width:759px){
+    #pd{top:auto;bottom:auto;margin:0;inset-block-start:6dvh;height:94dvh;max-height:94dvh}
+    #pd[open]{animation:pd-up .38s cubic-bezier(.2,.8,.2,1)}
+  }
+}
+
 /* Sections ease in as they arrive (only when scripts run; content is never hidden without them). */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
